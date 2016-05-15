@@ -1,0 +1,52 @@
+This is a standalone PHP extension
+
+
+BUILDING ON UNIX etc.
+=====================
+
+To compile your new extension, you will have to execute the following steps:
+
+1.  $ phpize
+2.  $ ./configure
+3.  $ make
+4.  $ make install
+
+
+
+BUILDING ON WINDOWS
+===================
+
+The extension provides the VisualStudio V6 project file 
+
+  SlightPHP.dsp
+To compile the extension you open this file using VisualStudio,
+select the apropriate configuration for your installation
+(either "Release_TS" or "Debug_TS") and create "php_SlightPHP.dll"
+
+After successfull compilation you have to copy the newly
+created "SlightPHP.dll" to the PHP
+extension directory (default: C:\PHP\extensions).
+
+
+TESTING
+=======
+
+You can now load the extension using a php.ini directive
+
+  extension="SlightPHP.[so|dll]"
+
+or load it at runtime using the dl() function
+
+  dl("SlightPHP.[so|dll]");
+
+The extension should now be available, you can test this
+using the extension_loaded() function:
+
+  if (extension_loaded("SlightPHP"))
+    echo "SlightPHP loaded :)";
+  else
+    echo "something is wrong :(";
+
+The extension will also add its own block to the output
+of phpinfo();
+

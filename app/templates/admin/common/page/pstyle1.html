@@ -1,0 +1,25 @@
+<link rel="stylesheet" type="text/css" href="/assets/css/page.css" />
+<form id="frmpage" action="" method="post">
+{foreach from=$post item=item key=key}
+<input name="{$key}" type="hidden" value="{$item}" />
+{/foreach}
+<div class="page">
+    <p class="pagetotal"> <u>共{$pagetotal}页</u> 
+    <a class="pagefirst" href="{$first}">第一页</a> 
+    {if $prepg neq null}
+    <a class="pagepre" href="{$prepg}">上一页</a>
+    {/if} 
+    {section name=sec loop=$pages start=$start max=$max} 
+    <a class="pagenum {if $currpage eq $pages[sec].page}current{/if}" href="{$pages[sec].url}">{$pages[sec].page}</a> 
+    {/section}
+    {if $nextpg neq null}
+    <a class="pagenext" href="{$nextpg}">下一页</a>
+    {/if} 
+    <a class="pagelast" href="{$last}">最后页</a> 
+    <u>到第
+        <input type="text" value="{$currpage}" class="pagegoto" name="pagegoto" id="pagegoto">
+      页</u> </p>
+    <a href="javascript:void(0)" class="btngoto" onclick="this.href='{$first}'.replace('page-1','page-'+$('#pagegoto').val());"><u></u>确定</a>
+</div>
+</form>
+<script type="text/javascript" src="/assets/js/page.js"></script>

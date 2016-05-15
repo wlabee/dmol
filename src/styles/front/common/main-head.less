@@ -1,0 +1,207 @@
+#main-header {
+  width: 100%;
+}
+
+#loginbar {
+  background-color: #fafafa;
+  border-bottom: 1px solid #dfdfdf;
+  height: 36px;
+  line-height: 36px;
+  i{
+    font-size: 14px;
+    margin-right: 5px;
+  }
+  .inner {
+    width: @page-width;
+    margin: 0 auto;
+    font-size: 12px;
+    overflow: hidden;
+    ul {
+      li {
+        line-height: 36px;
+        float: left;
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+#logo-topbar {
+  margin: 10px auto;
+  font-size: 16px;
+  width: 80%;
+  .clearfix();
+  .logo {
+    float: left;
+    margin-top: 7px;
+  }
+  #search {
+    float: left;
+    width: @page-width/3;
+    margin: 23px 20px 0 40px;
+    .form-control {
+      height: 40px;
+      float: left;
+    }
+    #search-type {
+      border: 1px solid #d6d6d6;
+      border-right: none;
+      border-radius: 4px 0 0 4px;
+      height: 40px;
+    }
+    #search-submit {
+      border: 1px solid #d6d6d6;
+      border-left: none;
+      border-radius: 0 4px 4px 0;
+      height: 40px;
+    }
+    #search-keywords {
+      width: 60%;
+      padding: 0 7px;
+    }
+    .btn {
+      overflow: hidden;
+      line-height: 25px;
+      span {
+        font-size: 16px;
+      }
+      i {
+        font-size: 14px;
+      }
+    }
+    .dropdown-menu {
+      font-size: 16px;
+      padding: 6px 0;
+      display: none;
+      background-clip: padding-box;
+      background-color: @white;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      border-radius: 2px;
+      //      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176);
+      list-style: none outside none;
+      margin: 2px 0 0;
+      z-index: 999;
+      position: absolute;
+      li {
+        a {
+          clear: both;
+          color: #333;
+          display: block;
+          font-weight: 400;
+          line-height: 1.5;
+          padding: 3px 20px;
+          text-align: center;
+          white-space: nowrap;
+        }
+      }
+    }
+    .caret {
+    }
+  }
+  #contact {
+    float: right;
+    margin-top: 25px;
+    div {
+      line-height: 30px;
+      padding: 0 20px 0 30px;
+      background: url("@{front-img}/icons.png") no-repeat transparent;
+    }
+    .contact-online {
+      background-position: 0 -52px;
+      float: left;
+      a {
+        color: @gray-light;
+      }
+    }
+    .contact-phone {
+      background-position: 0 -78px;
+      float: left;
+      color: @gray-light;
+      em {
+        color: @pink;
+        font-family: Arial;
+        font-size: 28px;
+        font-weight: bold;
+        padding-left: 20px;
+        vertical-align: top;
+      }
+    }
+  }
+}
+
+//导航
+#main-nav {
+  background-color: @pink;
+  font-size: 16px;
+  .clearfix();
+  ul {
+    width: @page-width;
+    overflow: hidden;
+    margin: 0 auto;
+    li {
+      a {
+        color: @white;
+        display: block;
+        height: 40px;
+        line-height: 40px;
+        padding: 0 20px;
+        float: left;
+        margin: 0 10px;
+      }
+      a:hover {
+        background-color: @pink-light;
+      }
+    }
+  }
+}
+
+#main-subnav {
+  .clearfix();
+  width: @page-width;
+  overflow: hidden;
+  margin: 10px auto;
+  ul {
+    overflow: hidden;
+    width: 212px;
+    float: left;
+    margin: 5px 10px;
+    text-align: center;
+    border-right: 1px solid @gray-lighter;
+    li {
+      a {
+        display: block;
+        float: left;
+        width: 90px;
+        padding: 7px 0;
+        overflow: hidden;
+      }
+    }
+    &.last {
+      border: none;
+    }
+  }
+}
+
+#main-hotnav {
+  .clearfix();
+  width: @page-width;
+  overflow: hidden;
+  margin: 10px auto;
+  ul {
+    margin: 5px 10px;
+    li {
+      a {
+        display: block;
+        float: left;
+        padding: 7px 0;
+        overflow: hidden;
+        margin-right: 36px;
+        color: @gray-light;
+        font-size: 12px;
+      }
+    }
+    &.last {
+      border: none;
+    }
+  }
+}

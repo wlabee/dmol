@@ -1,0 +1,237 @@
+@import "common/common.less";
+
+.hcol-1 {
+  float: left;
+  width: 300px;
+  min-height: 1px;
+}
+
+.hcol-2 {
+  width: @page-width - 650 - 10*2;
+  float: left;
+  margin-left: 10px;
+}
+
+.hcol-3 {
+  width: 350px;
+  float: left;
+}
+
+//
+#slider-img {
+  img {
+     height: 340px;
+  }
+}
+
+//推荐
+#recommend {
+}
+
+#recommend_title {
+  text-align: center;
+  font-size: 16px;
+  a {
+    color: @red;
+  }
+}
+
+#recommend_content {
+  margin: 10px 0;
+  line-height: 1.5;
+}
+
+#recommend_list {
+  li {
+    line-height: 2;
+    .type {
+      color: @gray-light;
+    }
+    .date {
+      color: @gray-light;
+      float: right;
+      font-size: 12px;
+    }
+  }
+}
+
+//发布美丽宣言
+#declaration {
+  form {
+    background: url("@{front-img}/cb_222.png");
+    width: 90%;
+    margin: 0 auto;
+    font-size: 14px;
+    border-radius: 4px;
+    color: @white;
+    textarea {
+      height: 45px;
+    }
+    //    background-color: @gray-darker;
+    //    .opacity(0.5);
+    .panel, .panel-body, .form-group {
+      .clearfix();
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .panel-heading {
+      border-bottom: 1px dotted @white;
+    }
+    .btn {
+      width: 90%;
+    }
+  }
+}
+
+//栏目标题
+.col-main-title {
+  font-size: 20px;
+  //  font-weight: bold;
+  border-bottom: 1px dotted @gray-light;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  .clearfix();
+  a{
+    font-size: 14px;
+    margin-top: 12px;
+    color: @pink;
+  }
+}
+.col-side-title {
+  font-size: 20px;
+  //  font-weight: bold;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+}
+//栏目内容
+.col-cotent{
+  .col-nav {
+    ul {
+      li {
+        line-height: 2;
+        font-size: 16px;
+        margin-left: 5px;
+        a {
+          color: @gray-light;
+        }
+      }
+    }
+  }
+}
+
+//美丽惠
+#hui{
+  .col-main-title {
+    line-height: 1.8;
+    .main-title{
+      background: url("@{front-img}/hui.png") no-repeat right bottom;
+      width: 95px;
+    }
+  }
+}
+
+#ask{
+  .col-main-title{
+    .main-title{
+      background: url("@{front-img}/doctor_small.png") no-repeat right bottom;
+      width: 125px;
+      height: 40px;
+      line-height: 2.5;
+    }
+  }
+}
+
+#diary{
+  .col-main-title{
+    .main-title{
+      background: url("@{front-img}/notebook.png") no-repeat right bottom;
+      width: 125px;
+      height: 40px;
+      line-height: 2.5;
+    }
+  }
+}
+
+//美丽问答
+.doctor-ask{
+  text-align: center;
+  border: 1px solid #ececec;
+  padding: 20px;
+  p{
+    margin-bottom: 10px;
+    line-height: 1.5;
+  }
+}
+
+.col-side-cotent {
+  float: right;
+  ol{
+    li{
+      .clearfix();
+      margin-bottom: 10px;
+      line-height: 1.8;
+      .num{
+        display: inline-block;
+        text-align: center;
+        background-color: @pink;
+        border-radius: 4px;
+        margin-right: 5px;
+        .square(20px);
+        line-height: 20px;
+        color: @white;
+        font-size: 12px;
+      }
+    }
+  }
+  .doctor-online {
+    dt {
+      margin: 10px 0;
+      font-size: 16px;
+      font-weight: 400;
+    }
+    dd {
+      .clearfix();
+      margin: 20px 0;
+      .face {
+        text-align: center;
+        img {
+          .face(50px);
+        }
+      }
+      .doctor-name {
+        margin-left: 20px;
+      }
+      .doctor-hospital {
+        margin-left: 20px;
+        margin-top: 10px;
+        a {
+          color: @gray-light;
+        }
+      }
+    }
+  }
+
+}
+
+//热门部落推荐
+.diary-item{
+  margin-bottom: 20px;
+  li{
+    margin: 0 8px 10px 0;
+    float: left;
+    a{
+      display: block;
+      background-color: @pink-dark;
+      letter-spacing: 2px;
+      color: @white;
+      font-size: 12px;
+      padding: 4px 11px;
+      border-radius: 4px;
+//      text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+      font-weight: 600;
+      line-height: 20px;
+      font-family:  "幼圆";
+    }
+  }
+}

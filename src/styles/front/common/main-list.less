@@ -1,0 +1,84 @@
+.list1 {
+  .item {
+    float: left;
+    width: 45%;
+    padding: 10px 15px;
+    img {
+      height: 160px;
+    }
+    .title {
+      font-size: 16px;
+      font-weight: 400;
+    }
+  }
+  .price-seller {
+    font-size: 16px;
+    color: @pink;
+  }
+  .price-market {
+    text-decoration: line-through;
+    color: @gray-light;
+  }
+
+}
+
+.list2 {
+  i {
+    margin-right: 5px;
+  }
+  .item {
+    .clearfix();
+    margin: 20px;
+    padding-bottom: 20px;
+    line-height: 1.8;
+    color: @gray-light;
+    font-size: 12px;
+    border-bottom: 1px dashed lighten(#000, 80%);
+    .link();
+    .title {
+      margin-bottom: 10px;
+      .link(@gray);
+      a {
+        font-size: 18px;
+        font-weight: 400;
+      }
+    }
+    .face {
+      float: left;
+      text-align: center;
+      color: @gray-light;
+      li {
+        margin-top: 10px;
+        img {
+          .face(60px);
+        }
+      }
+    }
+    .item-content{
+      padding-left: 20px;
+    }
+    .item-bar {
+      a {
+        margin: 0 10px;
+      }
+    }
+  }
+}
+
+.list3{
+  .item{
+    color: @gray;
+    line-height: 1.5;
+    min-height: 120px;
+    margin-top: 10px;
+    .face{
+      .face(40px);
+    }
+    .title,.item-content{
+      padding-left: 8px;
+    }
+    .title{
+      margin-bottom: 5px;
+    }
+  }
+}

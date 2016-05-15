@@ -1,0 +1,199 @@
+@import 'common.less';
+
+.logo {
+  background: url("@{common-img}/logo.png") left center no-repeat;
+  width: 160px;
+  height: 70px;
+}
+
+.title {
+  font-size: 14px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.split {
+  padding: 0 5px;
+}
+
+.center{
+  text-align: center;
+}
+
+.row {
+  margin: 0;
+  .clearfix();
+  img {
+    width: 100%;
+  }
+}
+.page-row{
+  margin: 20px auto 0;
+}
+
+.pink{
+  color: @pink;
+}
+
+//面板
+.panel {
+  background-color: #fff;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  margin-bottom: 18px;
+  .panel-heading {
+    font-size: 16px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 1px;
+    border-top-right-radius: 1px;
+    padding: 10px 15px;
+  }
+  .panel-body {
+    padding: 15px;
+  }
+}
+
+.panel-compact {
+  border: none;
+  box-shadow:none;
+  margin-bottom: 0;
+  .panel-heading {
+    border: none;
+    padding-left: 15px;
+  }
+  .panel-body {
+    border: none;
+    padding-top: 0;
+  }
+}
+
+.panel-first {
+  .panel-heading {
+    padding-left: 0;
+  }
+  .panel-body {
+    padding: 0;
+  }
+}
+
+.panel-block {
+  .panel-variant(@panel-default-border; @white; @pink; @panel-default-border);
+  border: none;
+  .panel-heading {
+    font-size: 16px;
+    font-family: "黑体";
+    border-radius: 4px 4px 0 0;
+  }
+}
+
+//表单
+.form-horizontal {
+  width: 100%;
+  margin: 0 auto;
+  .form-group {
+    margin-bottom: 10px;
+    overflow: hidden;
+  }
+  .control-label {
+    display: inline-block;
+    float: left;
+    text-align: right;
+    padding-right: 10px;
+    font-size: 16px;
+    padding-top: 2px;
+  }
+  .controls {
+    float: left;
+  }
+  .form-control {
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #d6d6d6;
+    border-radius: 2px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    color: #555;
+    display: block;
+    font-size: 14px;
+    line-height: 1.5;
+    padding: 3px 12px;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+  }
+}
+
+.form-inline {
+  width: 100%;
+  margin: 0 auto;
+  .form-group {
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+  .control-label {
+    display: inline-block;
+    text-align: right;
+    padding-right: 10px;
+    font-size: 16px;
+    padding-top: 2px;
+    margin-bottom: 10px;
+  }
+  .form-control {
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #d6d6d6;
+    border-radius: 2px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    color: #555;
+    display: block;
+    font-size: 14px;
+    line-height: 1.5;
+    padding: 3px 12px;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+  }
+}
+
+input.form-control, select.form-control {
+  border: 1px solid #d6d6d6;
+}
+
+.btn-default {
+  background-color: #fff;
+  border-color: #ccc;
+  color: #333;
+}
+
+.btn {
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.42857;
+  margin-bottom: 0;
+  padding: 6px 12px;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+.btn-pink {
+  background-color: #fe5e79;
+  font-weight: bold;
+  font-size: 18px;
+  color: @white;
+}
+.btn-pink:hover{
+  background-color: #f5294e;
+  color: @white;
+}
+button, input[type="button"], input[type="reset"], input[type="submit"] {
+  cursor: pointer;
+}
+
+.page-title{
+  font-size: 28px;
+  font-weight: normal;
+  padding: 35px 0px 15px 0px;
+  line-height: 28px;
+  font-family: "Microsoft Yahei";
+}

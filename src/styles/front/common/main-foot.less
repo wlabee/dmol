@@ -1,0 +1,38 @@
+#main-footer {
+  .clearfix();
+  margin: 20px auto;
+  border-top: 3px solid @gray-border;
+  background-color: #FDFDFD;
+}
+#main-footer-inner{
+  width: @page-width;
+  margin: 0 auto;
+  padding: 10px 0;
+  .desc,.about,.links,.follow{
+    float: left;
+    margin-left: 30px;
+    line-height: 1.5;
+    dt{
+      color: @gray-dark;
+      font-weight: bold;
+      padding: 25px 0 4px;
+      font-size: 16px;
+    }
+    dd{
+      color: @gray-light;
+//      font-size: 12px;
+      line-height: 1.5;
+      margin-top: 10px;
+      .link();
+    }
+  }
+  .desc{
+    width: 55%;
+    margin-left: 0;
+  }
+  .follow{
+    img{
+      .square(100px);
+    }
+  }
+}

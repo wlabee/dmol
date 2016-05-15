@@ -1,0 +1,65 @@
+.clearfix() {
+  &:before,
+  &:after {
+    content: " "; // 1
+    display: table; // 2
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+//布局
+.loopingCol (@index) when (@index > 0) {
+  @col-width: percentage(@index/@grid-columns);
+  .col-@{index} {
+    width: @col-width;
+    float: left;
+    min-height: 1px;
+    position: relative;
+  }
+  // 递归
+  .loopingCol(@index - 1);
+}
+
+.loopingCol(12);
+
+.loopingMargin (@index) when (@index > 0) {
+  @col-width: percentage(@index/@grid-columns);
+  .offset-@{index} {
+    margin-left: @col-width;
+  }
+  // 递归
+  .loopingMargin(@index - 1);
+}
+
+.loopingMargin(12);
+
+.panel-variant(@border; @heading-text-color; @heading-bg-color; @heading-border) {
+  border-color: @border;
+
+  & > .panel-heading {
+    color: @heading-text-color;
+    background-color: @heading-bg-color;
+    border-color: @heading-border;
+
+    + .panel-collapse .panel-body {
+      border-top-color: @border;
+    }
+  }
+  & > .panel-footer {
+    + .panel-collapse .panel-body {
+      border-bottom-color: @border;
+    }
+  }
+}
+
+.square(@size) {
+  width: @size;
+  height: @size;
+}
+
+.face(@size) {
+  .square(@size);
+  border-radius: 50%;
+}
