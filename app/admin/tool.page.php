@@ -10,7 +10,7 @@ class admin_tool extends components_page {
     }
 
     function pageG($inPath) {
-        $dbName = 'r3mvk586i1';
+        $dbName = 'dmol';
         $tables = components_model::getTables($dbName);
         if ($tables) {
             foreach ($tables as $table) {

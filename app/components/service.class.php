@@ -42,7 +42,7 @@ abstract class components_service {
 
     protected function invokeTransaction() {
         $backtrace = debug_backtrace();
-        return $this->_invokeTransaction(array('ssm'), array(
+        return $this->_invokeTransaction(array('dmol'), array(
             $this,
             '_' . $backtrace[1]['function']
         ), $backtrace[1]['args']);
@@ -198,7 +198,7 @@ abstract class components_service {
      * @param string $msg
      * @param int $code
      */
-    protected function setError($msg = "", $code = 0) {
+    protected function setError($code = 0, $msg = "") {
         $this->_error["code"] = $code;
         $this->_error["msg"] = $msg;
     }

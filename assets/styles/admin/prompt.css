@@ -1671,13 +1671,15 @@
   content: "\f20c";
 }
 .prompt {
-  background: url("/assets/images/admin/bg-10.jpg");
+  background: url("/assets/images/admin/bg-sky.jpg");
+  background-repeat: round;
   text-align: center;
+  background-color: #DDD;
 }
 .prompt .box {
   width: 30%;
-  margin: 10% auto 0;
-  background-color: #DFD5CC;
+  margin: 15% auto 30%;
+  background-color: #89B;
   padding: 15px;
   border-radius: 4px;
 }

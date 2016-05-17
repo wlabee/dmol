@@ -21,27 +21,27 @@ class components_page_admin extends components_page {
         return $menu->getHtml();
     }
 
-    public function render($tpl, $parames = array()) {
+    public function render($tpl) {
         $config['compile_dir'] = 'admin';
         $config['template_dir'] = 'admin';
-        return parent::render($tpl, $parames, $config);
+        return parent::render($tpl, $config);
     }
 
     function showMessage($code = 1, $msg = '正在跳转中', $backurl = '', $second = 0) {
-        $params['msg'] = $msg;
+        $this->_tplParams['msg'] = $msg;
         if ($backurl == 'self') {
             $backurl = $_SERVER['HTTP_REFERER'];
         }
-        $params['url'] = $backurl;
+        $this->_tplParams['url'] = $backurl;
         if ($second == 0 && $backurl) {
             $this->redirect($backurl);
         }
         if ($backurl && !$second) {
             $second = 2;
         }
-        $params['second'] = $second;
-        $params['code'] = $code;
-        echo $this->render('common/prompt.tpl', $params);
+        $this->_tplParams['second'] = $second;
+        $this->_tplParams['code'] = $code;
+        echo $this->render('common/prompt.tpl');
         exit;
     }
 }

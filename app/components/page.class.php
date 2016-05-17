@@ -8,12 +8,18 @@ class components_page extends SGui {
     protected $_post = array();
     protected $_get = array();
     protected $_request = array();
+    //模版参数
     protected $_tplParams = array();
+    //是否是post提交
+    protected $_is_post = false;
 
     function __construct($isNeedLogin = true) {
         $this->getRequest();
         if ($isNeedLogin) {
             $this->isLogin();
+        }
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $this->_is_post = true;
         }
     }
 
@@ -21,8 +27,10 @@ class components_page extends SGui {
      * 是否登陆
      */
     protected function isLogin() {
-        if (!defined('DEV') && !$_COOKIE['token']) {
-            return false;
+        if (defined('DEV')) {
+            $this->_userid = 1;
+            $this->_username = 'admin';
+            return true;
         }
         $token = $_COOKIE['token'];
         if (!$token) {
@@ -233,8 +241,6 @@ class components_page extends SGui {
     }
 
     public function render($tpl, $config = array()) {
-        $config['compile_dir'] = 'front';
-        $config['template_dir'] = 'front';
         return parent::render($tpl, $this->_tplParams, $config);
     }
 }

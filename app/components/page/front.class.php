@@ -8,21 +8,26 @@ class components_page_front extends components_page {
     }
 
     function showMessage($code = 1, $msg = '正在跳转中', $backurl = '', $second = 0) {
-        $params['msg'] = $msg;
+        $this->_tplParams['msg'] = $msg;
         if ($backurl == 'self') {
             $backurl = $_SERVER['HTTP_REFERER'];
         }
-        $params['url'] = $backurl;
+        $this->_tplParams['url'] = $backurl;
         if ($second == 0 && $backurl) {
             $this->redirect($backurl);
         }
         if ($backurl && !$second) {
             $second = 2;
         }
-        $params['second'] = $second;
-        $params['code'] = $code;
-        echo $this->render('common/prompt.tpl', $params);
+        $this->_tplParams['second'] = $second;
+        $this->_tplParams['code'] = $code;
+        echo $this->render('common/prompt.tpl');
         exit;
+    }
+    public function render($tpl) {
+        $config['compile_dir'] = 'front';
+        $config['template_dir'] = 'front';
+        return parent::render($tpl, $config);
     }
 }
 

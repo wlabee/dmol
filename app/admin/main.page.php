@@ -2,10 +2,11 @@
 
 class admin_main extends components_page_admin {
     function __construct() {
-        parent::__construct(false);
+        parent::__construct(true);
     }
 
     function pageIndex($inPath) {
+        exit('admin');
 //        $mdl = new model_ssm_admin();
 //        $mdl->paging(2);
 //        $list = $mdl->select(array("admin_id>1"));
