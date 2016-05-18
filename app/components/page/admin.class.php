@@ -2,8 +2,9 @@
 
 class components_page_admin extends components_page {
 
-    protected function isLogin() {
-        parent::isLogin();
+    public function __construct($isNeedLogin = true)
+    {
+        parent::__construct($isNeedLogin);
         $this->_tplParams['menu'] = $this->getMenu();
     }
 

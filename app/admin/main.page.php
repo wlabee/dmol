@@ -6,7 +6,7 @@ class admin_main extends components_page_admin {
     }
 
     function pageIndex($inPath) {
-        exit('admin');
+        // exit('admin');
 //        $mdl = new model_ssm_admin();
 //        $mdl->paging(2);
 //        $list = $mdl->select(array("admin_id>1"));
@@ -19,5 +19,3 @@ class admin_main extends components_page_admin {
     }
 
 }
-
-?>

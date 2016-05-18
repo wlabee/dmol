@@ -2,11 +2,20 @@ $(window).load(function () {
     var form = $(".login-form");
     var denger = $(".text-danger");
     form.submit(function(e){
-        denger.html('');
-        denger.hide();
         e.preventDefault();
         e.stopPropagation();
-        e.stopPropagation();
+        denger.html('');
+        denger.hide();
+        if (!$("#user_name").val()) {
+            denger.html('请填写用户名');
+            denger.show();
+            return false;
+        }
+        if (!$("#password").val()) {
+            denger.html('请填写用密码'); 
+            denger.show();
+            return false;
+        }
         $.ajax({
             url: '/login',
             type: 'POST',

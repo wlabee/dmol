@@ -6,8 +6,10 @@ class admin_login extends components_page_admin {
     }
 
     function pageIndex($inPath) {
+        if ($_COOKIE['token']) {
+            $this->redirect('/');
+        }
         if ($this->_is_post) {
-            //TODO 登录逻辑
             $user_name = Tsafe::filter($this->_request['user_name']);
             $password = Tsafe::filter($this->_request['password']);
             if (!$user_name) {
@@ -21,10 +23,19 @@ class admin_login extends components_page_admin {
             if ($user === false) {
                 $this->response(-1, $srv->getError());
             }
-            $this->response(-1, '成功');
+            $user_str = json_encode(
+                array(
+                    'user_id' => $user['admin_id'],
+                    'user_name' => $user['admin_name'],
+                    'role' => $user['role'],
+                    'ip' => Tcommon::getIp(),
+                )
+            );
+            $token = Tsafe::authcode($user_str, 'ENCODE', constant::COOKIE_KEY, 24*60*60);
+            Tcommon::setcookie('token', $token, 24*60*60);
+            $this->response(0, '成功', $this->_request['request_uri']?:'/');
         }
+        $this->_tplParams['request_uri'] = $this->_request['request_uri'];
         return $this->render('login.tpl');
     }
 }
-
-?>

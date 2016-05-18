@@ -17,6 +17,7 @@
                     <input type="password" class="form-control" name="password" id="password" value="">
                 </div>
                 <div class="form-group">
+                    <input type="hidden" name="request_uri" value="{%$request_uri%}">
                     <input type="submit" class="btn btn-success" name="submit" value="Sign in">
                     <label class="text-danger"></label>
                 </div>

@@ -37,5 +37,3 @@ class service_admin extends components_service
     }
 
 }
-
-?>

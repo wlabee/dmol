@@ -32,23 +32,28 @@ class components_page extends SGui {
             $this->_username = 'admin';
             return true;
         }
+        $request_uri = urlencode($_SERVER['REQUEST_URI']);
         $token = $_COOKIE['token'];
         if (!$token) {
-            $this->response(-2, '请重新登录', '/login');
+            Tcommon::setcookie('token', '', -1);
+            $this->response(-2, '请先登录', '/login?request_uri='.$request_uri);
         }
         $token = Tsafe::authcode($token, 'DECODE', constant::COOKIE_KEY);
         if (!$token) {
-            $this->response(-3, '请重新登录', '/login');
+            Tcommon::setcookie('token', '', -1);
+            $this->response(-3, '请重新登录', '/login?request_uri='.$request_uri);
             return false;
         }
-//        if (defined('DEV')) {
-//        $sUser = new service_login();
-//            $sUser->setId(DEV);
-//            $token = $sUser->get();
-//        }
+        $token = json_decode($token, true);
+        //验证ip
+        if ($token['ip'] != Tcommon::getIp()) {
+            $this->response(-3, '登录异常，请重新登录', '/login?request_uri='.$request_uri);
+            Tcommon::setcookie('token', '', -1);
+            return false;
+        }
         $this->_userid = $token['user_id'];
-        $this->_username = $token['username'];
-        $this->_tplParams['global'] = $token;
+        $this->_username = $token['user_name'];
+        // $this->_tplParams['global'] = $token;
         return $token;
     }
 
