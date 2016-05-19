@@ -21,6 +21,10 @@ class components_page extends SGui {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $this->_is_post = true;
         }
+        $this->_tplParams['global'] = array(
+          'userid' => $this->_userid,
+          'username' => $this->_username,
+        );
     }
 
     /**
@@ -47,13 +51,12 @@ class components_page extends SGui {
         $token = json_decode($token, true);
         //验证ip
         if ($token['ip'] != Tcommon::getIp()) {
-            $this->response(-3, '登录异常，请重新登录', '/login?request_uri='.$request_uri);
             Tcommon::setcookie('token', '', -1);
+            $this->response(-3, '登录异常，请重新登录', '/login?request_uri='.$request_uri);
             return false;
         }
         $this->_userid = $token['user_id'];
         $this->_username = $token['user_name'];
-        // $this->_tplParams['global'] = $token;
         return $token;
     }
 

@@ -10,15 +10,12 @@ class components_page_admin extends components_page {
 
     public function getMenu() {
         $menu = new admin_module_menu($this->_userid);
-        $sub = new admin_module_submenu('医院', 'fa-paper-plane', '#');
+        $sub = new admin_module_submenu('管理员管理', 'fa-paper-plane', '#');
+        $sub->add(new admin_module_link('管理员', 'fa-plus', '/acustomer/add'));
+        $sub->add(new admin_module_link('角色管理', 'fa-plus', '/acustomer/add'));
+        $sub->add(new admin_module_link('权限管理', 'fa-plus', '/acustomer/add'));
         $menu->add($sub);
-        $sub = new admin_module_submenu('美丽惠', 'fa-paper-plane', '#');
-        $menu->add($sub);
-        $sub = new admin_module_submenu('美丽部落', 'fa-paper-plane', '#');
-        $menu->add($sub);
-        $sub = new admin_module_submenu('会员', 'fa-paper-plane');
-        $sub->add(new admin_module_link('评价', 'fa-plus', '/acustomer/add'));
-        $menu->add($sub);
+        
         return $menu->getHtml();
     }
 

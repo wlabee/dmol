@@ -3,8 +3,8 @@
                 class="hide-menu-text">隐藏菜单</span></button>
     <div class="navbar-inner">
         <div class="navbar-header">
-            <a href="index.html" class="navbar-brand" style="font-size: 1em;">
-                合作医院派单平台
+            <a href="/" class="navbar-brand" style="font-size: 1em;">
+                DMOL后台管理系统
             </a>
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                     data-target="#main-navbar-collapse"><i

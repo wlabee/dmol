@@ -1,0 +1,11 @@
+app/templates_c/
+app/templates_c/*
+assets/styles/*
+assets/scripts/*
+.idea
+.idea/*
+.project
+.settings
+.buildpath
+.settings/*
+app/components/db.ini.php

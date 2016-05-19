@@ -38,4 +38,10 @@ class admin_login extends components_page_admin {
         $this->_tplParams['request_uri'] = $this->_request['request_uri'];
         return $this->render('login.tpl');
     }
+
+    public function pageLogout()
+    {
+        Tcommon::setcookie('token', '', -1);
+        $this->response(-1, '退出成功', '/login');
+    }
 }

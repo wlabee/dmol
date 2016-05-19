@@ -12,7 +12,7 @@ $(window).load(function () {
             return false;
         }
         if (!$("#password").val()) {
-            denger.html('请填写用密码'); 
+            denger.html('请填写用密码');
             denger.show();
             return false;
         }
