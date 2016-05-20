@@ -23,7 +23,7 @@ class service_admin extends components_service
         if (!$password) {
             throw new Exception("无效密码");
         }
-        $user = $this->getModel()->selectOne(
+        $user = $this->model->selectOne(
             array('admin_name' => $name),
             '*'
         );

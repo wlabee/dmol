@@ -97,4 +97,21 @@ class Tarray {
         }
     }
 
+    public static function getSub($arr, $fields)
+    {
+        if (empty($arr) || empty($fields)) {
+            return array();
+        }
+        $ret = array();
+        if (! is_array($fields)) {
+            $fields = explode(',', $fields);
+        }
+
+        foreach ($fields as $field) {
+            $ret[$field] = $arr[$field]?:'';
+        }
+
+        return $ret;
+    }
+
 }
