@@ -36,8 +36,8 @@ class service_dmamark extends components_service
         $in_data['is_delete'] = 0;
         $mk_id = $this->model->insert($in_data);
         if ($mk_id === false) {
-            throw new Exception('数据操作错误');
-            // throw new Exception($this->model->getDbError());
+            // throw new Exception('数据操作错误');
+            throw new Exception($this->model->getDbError());
         }
         return $mk_id;
     }

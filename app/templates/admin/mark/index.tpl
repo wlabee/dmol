@@ -31,7 +31,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {%foreach from=$list item=$item%}
+                    {%foreach from=$list item=item%}
                     <tr>
                         <td>{%$item.mk_id%}</td>
                         <td>{%$item.mk_name%}</td>

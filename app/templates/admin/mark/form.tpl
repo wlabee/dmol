@@ -2,24 +2,19 @@
     <input type="hidden" name="mkid" value="{%$mkinfo.mk_id%}"/>
     <div class="panel-body">
         <div class="row form-group">
-            <label class="col-sm-4 control-label">用户:</label>
+            <label class="col-sm-4 control-label">标签名:</label>
             <div class="col-sm-8">
-                <input type="text" name="uu" class="form-control" value=" {%$user.user_name%}" disabled="disabled">
+                <input type="text" name="mk_name" class="form-control" value=" {%$mkinfo.mk_name%}" disableds="disableds">
             </div>
         </div>
         <div class="row form-group">
-            <label class="col-sm-4 control-label">产品:</label>
+            <label class="col-sm-4 control-label">标签类型:</label>
             <div class="col-sm-8">
-                <select name="type">
-                    <option value="1" {%if $order.type eq 1%}selected="selected"{%/if%}>整车</option>
-                    <option value="2" {%if $order.type eq 2%}selected="selected"{%/if%}>配件</option>
+                <select name="mk_type">
+                    {%foreach from=$mktypes key=key item=item%}
+                    <option value="{%$key%}" {%if $mkinfo.mk_type eq $key%}selected="selected"{%/if%}>{%$item%}</option>
+                    {%/foreach%}
                 </select>
-            </div>
-        </div>
-        <div class="row form-group">
-            <label class="col-sm-4 control-label">车型:</label>
-            <div class="col-sm-8">
-                <input type="text" name="car_type" class="form-control" value="{%$order.car_type%}">
             </div>
         </div>
     </div>

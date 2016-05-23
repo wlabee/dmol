@@ -25,6 +25,7 @@ class admin_mark extends components_page_admin {
 
         $this->_tplParams['pages'] = $this->getPageBarByDb($result);
         $this->_tplParams['list'] = $result->items;
+        $this->_tplParams['mktypes'] = config::_get('mark_type');
 
         return $this->render('mark/index.tpl');
     }
