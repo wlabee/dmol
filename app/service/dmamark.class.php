@@ -56,7 +56,7 @@ class service_dmamark extends components_service
         if (!$in_data['mk_name']) {
             throw new Exception("无效标签名");
         }
-        if ($this->hasName($in_data['mk_name'])) {
+        if ($this->hasName($in_data['mk_name'], $this->id)) {
             throw new Exception("标签名重复");
         }
         $succ = $this->model->update(array('mk_id' => $this->id), $in_data);
@@ -92,7 +92,7 @@ class service_dmamark extends components_service
         return $this->_invokeTransaction(array('dmol'), array(
             $this,
             'changeStatus'
-        ), 1);
+        ), array(1));
     }
     //解锁
     public function unlock()
@@ -100,7 +100,7 @@ class service_dmamark extends components_service
         return $this->_invokeTransaction(array('dmol'), array(
             $this,
             'changeStatus'
-        ), 0);
+        ), array(0));
     }
     //改变状态（锁定解锁）
     protected function changeStatus($status)
@@ -120,9 +120,13 @@ class service_dmamark extends components_service
     }
 
     //标签名不能重复，-没有做唯一约束
-    private function hasName($name)
+    private function hasName($name, $id = 0)
     {
-        $mk_info = $this->model->selectOne(array('mk_name' => $name), 'mk_id');
+        $where = array('mk_name' => $name);
+        if ($id) {
+            $where[] = "mk_id != $id";
+        }
+        $mk_info = $this->model->selectOne($where, 'mk_id');
         if ($mk_info && $mk_info['mk_id']) {
             return true;
         }

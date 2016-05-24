@@ -8,12 +8,19 @@ class admin_mark extends components_page_admin {
     public function pageIndex($inPath) {
         $page = Tsafe::filter($this->_request['page'], 'int');
         $scname = Tsafe::filter($this->_request['scname']);
+        $scstatus = Tsafe::filter($this->_request['scstatus']);
         $limit = 20;
         $where = array('is_delete' => 0);
-        if ($scname && Tsafe::isID($scname)) {
+        if ($scname && Tverify::isID($scname)) {
             $where['mk_id'] = (int)$scname;
         } elseif($scname) {
             $where[] = "mk_name like '$scname%'";
+        }
+
+        if ($scstatus) {
+            $where['status'] = 1;
+        } else {
+            $where['status'] = 0;
         }
 
         $m_mark = new model_dm_dma_mark();
@@ -50,7 +57,7 @@ class admin_mark extends components_page_admin {
             if ($succ === false) {
                 $this->response(-1, $srv_mk->getError());
             }
-            $this->response(0, 'success');
+            $this->response(0, 'success', 'self');
         }
         $this->_tplParams['mktypes'] = config::_get('mark_type');
         return $this->render('mark/form.tpl');
@@ -73,7 +80,7 @@ class admin_mark extends components_page_admin {
             if ($succ === false) {
                 $this->response(-1, $srv_mk->getError());
             }
-            $this->response(0, 'success');
+            $this->response(0, 'success', 'self');
         }
         $this->_tplParams['mktypes'] = config::_get('mark_type');
         $srv_mk = new service_dmamark($mk_id);
@@ -93,7 +100,7 @@ class admin_mark extends components_page_admin {
         if ($succ === false) {
             $this->response(-1, $srv_mk->getError());
         }
-        $this->response(0, '操作成功');
+        $this->response(0, '操作成功', 'self');
     }
 
     public function pageLock()
@@ -108,7 +115,7 @@ class admin_mark extends components_page_admin {
         if ($succ === false) {
             $this->response(-1, $srv_mk->getError());
         }
-        $this->response(0, '操作成功');
+        $this->response(0, '操作成功', 'self');
     }
 
     public function pageUnlock()
@@ -123,7 +130,7 @@ class admin_mark extends components_page_admin {
         if ($succ === false) {
             $this->response(-1, $srv_mk->getError());
         }
-        $this->response(0, '操作成功');
+        $this->response(0, '操作成功', 'self');
     }
 
 }

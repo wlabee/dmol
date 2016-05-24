@@ -4,13 +4,13 @@
         <div class="row form-group">
             <label class="col-sm-4 control-label">标签名:</label>
             <div class="col-sm-8">
-                <input type="text" name="mk_name" class="form-control" value=" {%$mkinfo.mk_name%}" disableds="disableds">
+                <input type="text" name="mk_name" class="form-control" value=" {%$mkinfo.mk_name%}">
             </div>
         </div>
         <div class="row form-group">
             <label class="col-sm-4 control-label">标签类型:</label>
             <div class="col-sm-8">
-                <select name="mk_type">
+                <select name="mk_type" {%if $mkinfo.mk_id%}disabled="disabled"{%/if%}>
                     {%foreach from=$mktypes key=key item=item%}
                     <option value="{%$key%}" {%if $mkinfo.mk_type eq $key%}selected="selected"{%/if%}>{%$item%}</option>
                     {%/foreach%}
