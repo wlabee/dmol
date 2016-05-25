@@ -10,12 +10,19 @@ class components_page_admin extends components_page {
 
     public function getMenu() {
         $menu = new admin_module_menu($this->_userid);
+
         $sub = new admin_module_submenu('管理员管理', 'fa-paper-plane', '#');
         $sub->add(new admin_module_link('管理员', 'fa-plus', '/acustomer/add'));
         $sub->add(new admin_module_link('角色管理', 'fa-plus', '/acustomer/add'));
         $sub->add(new admin_module_link('权限管理', 'fa-plus', '/acustomer/add'));
         $menu->add($sub);
-        
+
+        $sub = new admin_module_submenu('DM管理', 'fa-paper-plane', '#');
+        $sub->add(new admin_module_link('DM列表', 'fa-plus', '/dma'));
+        $sub->add(new admin_module_link('DM标签', 'fa-plus', '/mark'));
+        $sub->add(new admin_module_link('DM标签组', 'fa-plus', '/markgp'));
+        $menu->add($sub);
+
         return $menu->getHtml();
     }
 

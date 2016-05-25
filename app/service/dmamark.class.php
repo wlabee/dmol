@@ -132,4 +132,16 @@ class service_dmamark extends components_service
         }
         return false;
     }
+
+    public function getMarks($mk_id = 0, $mk_name = '')
+    {
+        $where = array('is_delete' => 0, 'status' => 0);
+        if ($mk_id) {
+            $where['mk_id'] = $mk_id;
+        }
+        if ($mk_name) {
+            $where['mk_name'] = $mk_name;
+        }
+        return $this->model->select($where, "mk_id,mk_name,mk_type")->items;
+    }
 }

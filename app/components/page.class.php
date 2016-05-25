@@ -251,6 +251,14 @@ class components_page extends SGui {
     public function render($tpl, $config = array()) {
         return parent::render($tpl, $this->_tplParams, $config);
     }
+
+    public static function getUser()
+    {
+        return array(
+            '_userid' => $this->_userid,
+            '_username' => $this->_username,
+        );
+    }
 }
 
 ?>
