@@ -8,9 +8,11 @@ class config{
         $config = array(
             'mark_type' => array(
                 'number' => '数字',
-                'text' => '文字',
-                'image' => '文件',
-                'editor' => '富文本',
+                'text' => '文本',
+                'textarea' => '文本域',
+                //'editor' => '富文本',
+                //'image' => '图片',
+                //'file' => '文件',
                 'email' => 'Email',
                 'mobile' => 'Mobile',
                 'url' => 'Url',

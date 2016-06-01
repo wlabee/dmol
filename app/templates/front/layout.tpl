@@ -9,9 +9,7 @@
               content=""/>
         <meta name="keywords" content=""/>
         {%block name="meta"%}{%/block%}
-        {%js type="plugin" file="jquery-2.2.3.min.js"%}
-        {%bs type="js" file="bootstrap"%}
-        {%bs type="css" file="bootstrap"%}
+        {%js type="plugin" file="jquery.min.js"%}
         {%css path="front" file="layout"%}
         {%block head_style%}{%/block%}
     {%/block%}

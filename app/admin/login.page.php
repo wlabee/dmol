@@ -28,7 +28,7 @@ class admin_login extends components_page_admin {
                     'user_id' => $user['admin_id'],
                     'user_name' => $user['admin_name'],
                     'role' => $user['role'],
-                    'ip' => Tcommon::getIp(),
+                    'ip' => Tcommon::getIp(1),
                 )
             );
             $token = Tsafe::authcode($user_str, 'ENCODE', constant::COOKIE_KEY, 24*60*60);

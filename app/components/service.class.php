@@ -227,5 +227,14 @@ abstract class components_service {
         }
         return $rs;
     }
+    protected function getUser()
+    {
+        $token = $_COOKIE['token'];
+        $token = json_decode($token, true);
+        return array(
+            '_userid' => $token['user_id'],
+            '_username' => $token['user_name'],
+        );
+    }
 
 }

@@ -1,6 +1,6 @@
 <?php
 
-class service_dmamark extends components_service
+class service_dma extends components_service
 {
     /**
      * @return components_model
@@ -23,12 +23,12 @@ class service_dmamark extends components_service
             throw new Exception('无效页面标题');
         }
 
-        $admin_user = components_page::getUser();
+        $admin_user = $this->getUser();
         $in_data = array_merge($in_data, array(
             'user_id' =>1,
             'user_name' => 'default',
-            'admin_id' => $admin_user['_userid'],
-            'admin_name' => $admin_user['_username'],
+            'admin_id' => $admin_user['_userid']?:0,
+            'admin_name' => $admin_user['_username']?:'',
             'create_time' => $this->_time,
             'create_date' => $this->_ymd,
         ));

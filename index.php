@@ -27,7 +27,7 @@ SlightPHP::setUrlSuffix("html");
 
 define('APP_DIR', __DIR__ . '/' . SlightPHP::$appDir);
 
-// define('DEV', 1);
+define('DEV', 1);
 
 require_once(SlightPHP::$appDir . "/components/config.php");
 require_once(SlightPHP::$appDir . "/components/constants.php");

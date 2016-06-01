@@ -50,7 +50,7 @@ class components_page extends SGui {
         }
         $token = json_decode($token, true);
         //验证ip
-        if ($token['ip'] != Tcommon::getIp()) {
+        if ($token['ip'] != Tcommon::getIp(1)) {
             Tcommon::setcookie('token', '', -1);
             $this->response(-3, '登录异常，请重新登录', '/login?request_uri='.$request_uri);
             return false;
@@ -250,14 +250,6 @@ class components_page extends SGui {
 
     public function render($tpl, $config = array()) {
         return parent::render($tpl, $this->_tplParams, $config);
-    }
-
-    public static function getUser()
-    {
-        return array(
-            '_userid' => $this->_userid,
-            '_username' => $this->_username,
-        );
     }
 }
 

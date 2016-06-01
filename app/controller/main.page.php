@@ -35,9 +35,9 @@ class controller_main extends components_page_front {
             return $this->render('index/index.tpl');
         }
     }
-    public function pageAaa()
+    public function pageMap()
     {
-    	echo "dog";
+    	return $this->render('index/map.tpl');
     }
 
 }

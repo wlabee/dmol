@@ -1,6 +1,13 @@
 <?php
 
 class components_page_front extends components_page {
+
+    public function __construct($isNeedLogin = true)
+    {
+        parent::__construct($isNeedLogin);
+        $this->_tplParams['bm_ak'] = constant::BMAP_KEY;
+    }
+
     public function render($tpl) {
         $config['compile_dir'] = 'front';
         $config['template_dir'] = 'front';
@@ -23,11 +30,6 @@ class components_page_front extends components_page {
         $this->_tplParams['code'] = $code;
         echo $this->render('common/prompt.tpl');
         exit;
-    }
-    public function render($tpl) {
-        $config['compile_dir'] = 'front';
-        $config['template_dir'] = 'front';
-        return parent::render($tpl, $config);
     }
 }
 
