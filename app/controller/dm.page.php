@@ -5,7 +5,7 @@ class controller_dm extends components_page_front {
         parent::__construct(false);
     }
 
-    public function render($tpl)
+    public function dmrender($tpl)
     {
         $file = SlightPHP::$appDir . DIRECTORY_SEPARATOR . "templates" . DIRECTORY_SEPARATOR .'front'.DIRECTORY_SEPARATOR. $tpl;
 
@@ -65,7 +65,7 @@ class controller_dm extends components_page_front {
             }
         }
 
-        return $this->render('dm/'.$dmid.'.tpl');
+        return $this->dmrender('dm/'.$dmid.'.tpl');
     }
 
 
