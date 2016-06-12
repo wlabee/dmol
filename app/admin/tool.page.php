@@ -35,6 +35,25 @@ class admin_tool extends components_page {
         echo 'over';
     }
 
+    //微信下单，推送事件模拟
+    public function pageTest1($value='')
+    {
+        $data = '<xml>
+<ToUserName><![CDATA[weixin_media1]]></ToUserName>
+<FromUserName><![CDATA[oDF3iYyVlek46AyTBbMRVV8VZVlI]]></FromUserName>
+<CreateTime>1398144192</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[merchant_order]]></Event>
+<OrderId><![CDATA[123456]]></OrderId>
+<OrderStatus>2</OrderStatus>
+<ProductId><![CDATA[11111]]></ProductId>
+<SkuInfo><![CDATA[10001:1000012;10002:100021]]></SkuInfo>
+</xml>';
+        $header = 'Content-type: text/xml';
+        $ret = Tnet::curl('http://www.onenetv2.com/wechat/fromwechat',$data,'POST',$header);
+        pf($ret);
+    }
+
 }
 
 ?>

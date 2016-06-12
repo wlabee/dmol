@@ -6,22 +6,26 @@ class admin_dma extends components_page_admin {
     }
 
     public function pageIndex($inPath) {
-        // $page = Tsafe::filter($this->_request['page'], 'int');
-        // $scname = Tsafe::filter($this->_request['scname']);
-        // $limit = 20;
-        //
-        // $m_mark = new model_dm_dma_mark();
-        // $m_mark->setPage($page);
-        // $m_mark->setLimit($limit);
-        // $m_mark->setCount(true);
-        //
-        // $result = $m_mark->select($where, '*', '', 'mk_id desc');
-        //
-        // $this->_tplParams['pages'] = $this->getPageBarByDb($result);
-        // $this->_tplParams['list'] = $result->items;
-        // $this->_tplParams['mktypes'] = config::_get('mark_type');
+        $page = Tsafe::filter($this->_request['page'], 'int');
+        $scname = Tsafe::filter($this->_request['scname']);
+        $limit = 20;
 
-        return $this->render('mark/index.tpl');
+        $where = array('is_delete' => 0);
+        if ($scname) {
+            $where[] = "dm_title like '{$scname}%' ";
+        }
+
+        $m_dm = new model_dm_dma();
+        $m_dm->setPage($page);
+        $m_dm->setLimit($limit);
+        $m_dm->setCount(true);
+
+        $result = $m_dm->select($where, '*', '', 'dm_id desc');
+
+        $this->_tplParams['pages'] = $this->getPageBarByDb($result);
+        $this->_tplParams['list'] = $result->items;
+
+        return $this->render('dma/index.tpl');
     }
 
     public function pageAdd()
@@ -50,9 +54,15 @@ class admin_dma extends components_page_admin {
         $this->response(0, 'success', 'self');
     }
 
-    public function pageDelete($value='')
+    public function pageDelete()
     {
         $this->response(0, 'success', 'self');
+    }
+
+    public function pagePmcode()
+    {
+        $dmid = Tsafe::filter($this->_request['dmid'], 'int');
+        $page = Tsafe::filter($this->_request['page'], 'int');
     }
 
 }
