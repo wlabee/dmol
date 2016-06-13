@@ -22,7 +22,7 @@
                     </select>
                 </div> -->
                 <button type="submit" class="btn btn-primary">Search</button>
-                <a href="mark/add" class="btn btn-success dialog">发布DM</a>
+                <a href="/dma/add" class="btn btn-success">发布DM</a>
             </form>
         </div>
     </div>
@@ -44,9 +44,10 @@
                         <td>{%$item.dm_title%}</td>
                         <td>{%$item.create_date%}</td>
                         <td>
-                            <a href="dma/edit?dmid={%$item.mk_id%}" class="dialog">编辑</a>
-                            <a href="dma/pmcode?dmid={%$item.mk_id%}" class="dialog">渠道管理</a>
-                            <a href="dma/delete?dmid={%$item.mk_id%}" class="dialog" data-ask="">删除</a>
+                            <a href="/dma/edit?dmid={%$item.dm_id%}" class="dialog">编辑</a>
+                            <a href="/pmcode?dmid={%$item.dm_id%}">渠道管理</a>
+                            <a href="?dmid={%$item.dm_id%}">统计管理</a>
+                            <a href="/dma/delete?dmid={%$item.dm_id%}" class="dialog" data-ask="">删除</a>
                         </td>
                     </tr>
                     {%foreachelse%}

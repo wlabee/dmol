@@ -78,4 +78,23 @@ class service_dma extends components_service
             }
         }
     }
+
+    //删除标签
+    public function delete()
+    {
+        return $this->invokeTransaction();
+    }
+    public function _delete()
+    {
+        if (! $this->id) {
+            throw new Exception("无效对象");
+        }
+
+        $succ = $this->model->update(array('dm_id' => $this->id), array('is_delete' => 1));
+        if ($succ === false) {
+            throw new Exception('数据操作错误');
+            // throw new Exception($this->model->getDbError());
+        }
+        return true;
+    }
 }

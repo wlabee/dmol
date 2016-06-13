@@ -27,3 +27,5 @@ class config{
         return $config;
     }
 }
+// main   =   host:rds6y1c0m5426o0lr3m5.mysql.rds.aliyuncs.com,user:luoqingbo,database:re8079e2di,password:luoqingbo123,charset:utf8
+// query  =   host:rds6y1c0m5426o0lr3m5.mysql.rds.aliyuncs.com,user:luoqingbo,database:re8079e2di,password:luoqingbo123,charset:utf8

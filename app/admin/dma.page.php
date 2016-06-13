@@ -56,13 +56,17 @@ class admin_dma extends components_page_admin {
 
     public function pageDelete()
     {
-        $this->response(0, 'success', 'self');
-    }
+        $dm_id = Tsafe::filter($this->_request['dmid'], 'int');
+        if (!$dm_id) {
+            $this->response(-1, '无效ID');
+        }
 
-    public function pagePmcode()
-    {
-        $dmid = Tsafe::filter($this->_request['dmid'], 'int');
-        $page = Tsafe::filter($this->_request['page'], 'int');
+        $srv_dm = new service_dma($dm_id);
+        $succ = $srv_dm->delete();
+        if ($succ === false) {
+            $this->response(-1, $srv_dm->getError());
+        }
+        $this->response(0, '操作成功', 'self');
     }
 
 }

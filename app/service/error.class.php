@@ -16,9 +16,10 @@ class service_error extends components_service
             'err_code' => $code?:0,
             'err_msg' => $msg,
             'err_info' => json_encode($data),
-            'create_time' => $this->_time,
-            'create_date' => $this->_ymd,
+            'create_time' => time(),
+            'create_date' => date('Y-m-d'),
         );
-        return $this->model->insert($data);
+        $md = new model_dm_error();
+        return $md->insert($data);
     }
 }

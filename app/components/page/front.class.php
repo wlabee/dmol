@@ -8,9 +8,9 @@ class components_page_front extends components_page {
         $this->_tplParams['bm_ak'] = constant::BMAP_KEY;
     }
 
-    public function render($tpl) {
-        $config['compile_dir'] = 'front';
-        $config['template_dir'] = 'front';
+    public function render($tpl, $dir = 'front') {
+        $config['compile_dir'] = $dir;
+        $config['template_dir'] = $dir;
         return parent::render($tpl, $config);
     }
 
@@ -28,7 +28,7 @@ class components_page_front extends components_page {
         }
         $this->_tplParams['second'] = $second;
         $this->_tplParams['code'] = $code;
-        echo $this->render('common/prompt.tpl');
+        echo $this->render('prompt.tpl', 'common');
         exit;
     }
 }
