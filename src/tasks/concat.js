@@ -10,6 +10,24 @@ module.exports = function (front_paths, admin_paths) {
                     src: [
                         front_paths.js_src + 'global/*.js'
                     ]
+                },
+                // Bootstrap
+                {
+                    dest: front_paths.js_dest + 'bootstrap.js',
+                    src: [
+                        admin_paths.js_src + 'common/libs/bootstrap-3.1.1/transition.js',
+                        admin_paths.js_src + 'common/libs/bootstrap-3.1.1/alert.js',
+                        admin_paths.js_src + 'common/libs/bootstrap-3.1.1/button.js',
+                        admin_paths.js_src + 'common/libs/bootstrap-3.1.1/carousel.js',
+                        admin_paths.js_src + 'common/libs/bootstrap-3.1.1/collapse.js',
+                        admin_paths.js_src + 'common/libs/bootstrap-3.1.1/dropdown.js',
+                        admin_paths.js_src + 'common/libs/bootstrap-3.1.1/modal.js',
+                        admin_paths.js_src + 'common/libs/bootstrap-3.1.1/tooltip.js',
+                        admin_paths.js_src + 'common/libs/bootstrap-3.1.1/popover.js',
+                        admin_paths.js_src + 'common/libs/bootstrap-3.1.1/scrollspy.js',
+                        admin_paths.js_src + 'common/libs/bootstrap-3.1.1/tab.js',
+                        admin_paths.js_src + 'common/libs/bootstrap-3.1.1/affix.js'
+                    ]
                 }
             ]
         },

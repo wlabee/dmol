@@ -13,7 +13,7 @@ module.exports = function (front_paths, admin_paths) {
             files: [
                 {
                     expand: true,
-                    cwd: front_paths.js_src,
+                    cwd: front_paths.js_dest,
                     src: ['**/*.js', '!**/*.min.js'],
                     dest: front_paths.js_dest,
                     rename: function (dest, src) {

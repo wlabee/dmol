@@ -7,7 +7,7 @@ class controller_main extends components_page_front {
 
     function pageIndex($inPath)
     {
-        exit('a');
+        return $this->render('index/index.tpl');
     	if ($this->_request['post'] == 1) {
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $ser = new service_dailynote();

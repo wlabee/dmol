@@ -11,7 +11,12 @@ module.exports = function (front_paths,admin_paths) {
                     src: ['**/*.less','!common/**/*.less'],
                     dest: front_paths.css_dest,
                     ext: '.css'
-                }
+                },
+                //固定输出less
+                {
+                    dest: front_paths.css_dest + 'bootstrap.css',
+                    src: [front_paths.css_src + '../common/bootstrap-3.*/bootstrap.less']
+                },
             ]
         },
         admin_build: {
