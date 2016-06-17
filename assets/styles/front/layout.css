@@ -2205,10 +2205,33 @@ input[type="submit"] {
   padding-right: 11em;
 }
 .banner .banner-nav ul li {
-  width: 13%;
+  width: 12%;
+  display: inline-block;
 }
 .banner .banner-nav ul li .right {
   float: right;
+}
+.banner .banner-nav ul li a {
+  font-family: 'Raleway', sans-serif;
+  width: 100%;
+  font-size: 17px;
+  color: #000;
+  text-decoration: none;
+  padding: 30px 12px 31px;
+  transition: .5s all;
+  -webkit-transition: .5s all;
+  -moz-transition: .5s all;
+  -o-transition: .5s all;
+  -ms-transition: .5s all;
+  float: left;
+}
+.banner .banner-nav ul li a:hover {
+  color: #fff;
+}
+.banner .banner-nav ul li .cap a {
+  text-decoration: none;
+  background-color: #FEC514;
+  color: #fff;
 }
 .flexy-menu {
   width: 100%;

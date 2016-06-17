@@ -45,9 +45,9 @@
     			<div class="banner-navigation">
     				<div class="banner-nav">
     						<ul class="flexy-menu orange nav1">
-    							<li class="hvr-sweep-to-bottom cap"><a href="index.html">Home</a></li>
-    							<li class="hvr-sweep-to-bottom"><a href="about.html">About Us</a></li>
-    							<li class="hvr-sweep-to-bottom"><a href="#">Services</a>
+    							<li class="hvr-sweep-to-bottom cap right"><a href="index.html">Home</a></li>
+    							<li class="hvr-sweep-to-bottom right"><a href="about.html">About Us</a></li>
+    							<li class="hvr-sweep-to-bottom right"><a href="#">Services</a>
     								<ul>
     									<li><a href="#">Service1</a></li>
     									<li><a href="#">Service2</a>
@@ -60,10 +60,10 @@
     									<li><a href="#">Service3</a></li>
     								</ul>
     							</li>
-    							<li class="hvr-sweep-to-bottom"><a href="#news" class="scroll">News</a></li>
-    							<li class="hvr-sweep-to-bottom"><a href="gallery.html">Gallery</a></li>
-    							<li class="hvr-sweep-to-bottom"><a href="blog.html">Blog</a></li>
-    							<li class="hvr-sweep-to-bottom"><a href="contact.html">Contact Us</a></li>
+    							<li class="hvr-sweep-to-bottom right"><a href="#news" class="scroll">News</a></li>
+    							<li class="hvr-sweep-to-bottom right"><a href="gallery.html">Gallery</a></li>
+    							<li class="hvr-sweep-to-bottom right"><a href="blog.html">Blog</a></li>
+    							<li class="hvr-sweep-to-bottom right"><a href="contact.html">Contact Us</a></li>
     						</ul>
     					<div class="clearfix"> </div>
     				</div>
