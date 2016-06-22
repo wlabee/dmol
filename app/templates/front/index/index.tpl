@@ -5,7 +5,7 @@
 {%block name="content"%}
     <!-- <img src="/assets/images/front/banner.jpg" alt="" /> -->
     <div class="" style="height:500px;">
-        <a href="/main/itt" class="dialog">报名</a>
+        <a href="/main/itt?hkey=h1" class="dialog">报名</a>
     </div>
 {%/block%}
 {%block body_js%}

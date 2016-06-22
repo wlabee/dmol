@@ -24,6 +24,7 @@ class service_intention extends components_service
         }
 
         $in_data['params'] = is_array($in_data['params']) ? json_encode($in_data['params']) : $in_data['params'];
+        $in_data['operator_id'] = $in_data['operator_id']?:0;
         $in_data['status'] = 0;
         $in_data['create_time'] = $this->_time;
         $in_data['create_date'] = $this->_ymd;

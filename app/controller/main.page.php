@@ -41,6 +41,29 @@ class controller_main extends components_page_front {
     	return $this->render('index/map.tpl');
     }
 
+    public function pageItt()
+    {
+        if ($this->_is_post) {
+            $name = Tsafe::filter($this->_request['name']);
+            $mobile = Tsafe::filter($this->_request['mobile']);
+            $hkey = Tsafe::filter($this->_request['hkey']);
+
+            $data = array(
+                'name' => $name,
+                'mobile' => $mobile,
+                'hkey' => $hkey,
+            );
+            $srv_itt = new service_intention();
+            $succ = $srv_itt->add($data);
+            if ($succ === false) {
+                $this->response(-1, '提交失败');
+            }
+            $this->response(1, '保存成功');
+        }
+        $this->_tplParams['hkey'] = Tsafe::filter($this->_request['hkey']);
+        return $this->render('index/itt.tpl');
+    }
+
 }
 
 ?>

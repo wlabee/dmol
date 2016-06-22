@@ -44,12 +44,3 @@
         </div>
     </div>
 </div>
-<script type="text/javascript">
-    $(document).ready(function(){
-        $(".banner-nav li.dropdown").mouseover(function(){
-            $(this).addClass("open");
-        }).mouseout(function(){
-            $(this).removeClass("open");
-        });
-    });
-</script>

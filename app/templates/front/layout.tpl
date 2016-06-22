@@ -66,12 +66,17 @@
         {%include file="./common/footer.tpl"%}
     </div>
 {%/block%}
-{%js path="front" file="bootstrap,move-top,global"%}
+{%js path="front" file="bootstrap,move-top"%}
 <script type="text/javascript">
-    $(document).ready(function(){
-        // $(".flexy-menu").flexymenu({speed: 400,type: "horizontal",align: "right"});
-        $().UItoTop({ easingType: 'easeOutQuart' });
-    });
+$(document).ready(function(){
+   // $(".flexy-menu").flexymenu({speed: 400,type: "horizontal",align: "right"});
+   $().UItoTop({ easingType: 'easeOutQuart' });
+   $(".banner-nav li.dropdown").mouseover(function(){
+       $(this).addClass("open");
+   }).mouseout(function(){
+       $(this).removeClass("open");
+   });
+});
 </script>
 {%block body_js%}{%/block%}
 </body>

@@ -2202,7 +2202,6 @@ input[type="submit"] {
   padding: 0;
   margin: 0;
   background: #FFF;
-  padding-right: 11em;
 }
 .banner .banner-nav ul li {
   display: inline-block;
@@ -2238,6 +2237,9 @@ input[type="submit"] {
   background-color: #FEC514;
   color: #fff;
 }
+.banner .banner-nav .dropdown .dropdown-menu a {
+  padding: 5px 30px;
+}
 .flexy-menu {
   width: 100%;
   margin: 0;
@@ -2246,7 +2248,7 @@ input[type="submit"] {
   float: left;
   list-style: none;
   text-align: center;
-  z-index: 2222;
+  z-index: 222;
 }
 .flexy-menu li {
   display: inline;

@@ -54,6 +54,7 @@
                     <tr>
                         <td>{%$item.id%}</td>
                         <td>{%$item.name%}</td>
+                        <td>{%$item.moible%}</td>
                         <td>{%$item.create_time|date_format:"%Y-%m-%d %H:%M:%s"%}</td>
                         <td>
                             {%foreach from=$item.params key=pk item=param%}

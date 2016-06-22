@@ -1,4 +1,4 @@
-$(function () {
+$(document).ready(function(){
     $("#content-wrapper").on("click", ".dialog", function (event) {
         event.preventDefault();
         event.stopPropagation();
@@ -101,6 +101,18 @@ $(function () {
                                 }
                             }
                             dialog.modal("hide");
+                        } else if (rs.code > 0) {
+                            if (rs.message != null && rs.message.length > 0) {
+                                alert(rs.message);
+                            }
+                            if (rs.data != null && rs.data.length > 0) {
+                                if (typeof(rs.data) != "undefined" && rs.data == 'self') {
+                                    window.location.reload();
+                                } else {
+                                    window.location.href = rs.data;
+                                }
+                            }
+                            dialog.modal("hide");
                         }
                         //console.log(rs);
                     }, "json");
@@ -112,16 +124,10 @@ $(function () {
         }
         dialog.modal("show");
     });
-    $(".datepicker").datepicker({
-        todayBtn: "linked",
-        forceParse: true,
-        autoclose: true,
-        todayHighlight: true
-    });
+    function loading() {
+        $("#sys-loading").modal('show');
+    }
+    function loaded() {
+        $("#sys-loading").modal('hide');
+    }
 });
-function loading() {
-    $("#sys-loading").modal('show');
-}
-function loaded() {
-    $("#sys-loading").modal('hide');
-}
