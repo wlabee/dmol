@@ -3,6 +3,7 @@
 class controller_main extends components_page_front {
     function __construct() {
         parent::__construct(false);
+        $this->_tplParams['nav'] = 'index';
     }
 
     function pageIndex($inPath)

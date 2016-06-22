@@ -1,1 +1,78 @@
 .copyrights{text-indent:-9999px;height:0;line-height:0;font-size:0;overflow:hidden;}
+.footer{
+	padding:4em 0 0;
+	background:#32373d;
+    .footer-grid {
+        h3{
+        	color:#FEC514;
+        	margin: 0em;
+        	font-size: 1.2em;
+        	text-transform: capitalize;
+        }
+        ul{
+        	padding:1em 0 0 1em;
+        	margin:0;
+            li{
+            	color:#CFCBCB;
+            	margin:5px 0;
+            	font-size:14px;
+            	text-transform: capitalize;
+                a{
+                	font-size:14px;
+                	color:#CFCBCB;
+                	text-decoration:none;
+                	text-transform: capitalize;
+                }
+                a:hover{
+                	text-decoration:none;
+                	color:#fec514;
+                }
+            }
+        }
+    }
+    .footer-bottom{
+    	margin: 6em 0 0;
+    	padding: 2em 0;
+    	border-top: 1px solid #DDDADA;
+        .footer-bottom-left{
+        	float:left;
+        	margin-top: 1.4em;
+            p{
+            	color:#f4f4f4;
+            	margin:0;
+            	font-size:15px;
+                a{
+                	color:#fec514;
+                }
+                a:hover{
+                  color: #f4f4f4;
+                  text-decoration: none;
+                }
+            }
+        }
+    }
+}
+#toTop {
+	display: none;
+	text-decoration: none;
+	position: fixed;
+	bottom: 20px;
+	right: 2%;
+	overflow: hidden;
+	z-index: 999;
+	width: 32px;
+	height: 32px;
+	border: none;
+	text-indent: 100%;
+	background: url("@{front-img}/arrow.png") no-repeat 0px 0px;
+}
+#toTopHover {
+	width: 32px;
+	height: 32px;
+	display: block;
+	overflow: hidden;
+	float: right;
+	opacity: 0;
+	-moz-opacity: 0;
+	filter: alpha(opacity=0);
+}

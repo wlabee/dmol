@@ -18,77 +18,61 @@
 <body class="{%block body_class%}{%/block%}">
 {%block name="body"%}
     <div class="container-fluid">
-        <div class="header">
+        {%include file="./common/header.tpl"%}
+        <!-- <nav class="navbar navbar-default bannerx">
             <div class="container">
-                <div class="header-left">
-                    <form class="navbar-form navbar-right" role="search">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search">
-                        </div>
-                        <button type="submit" class="btn btn-default" aria-label="Left Align">
-                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                        </button>
-                    </form>
-                </div>
-                <div class="header-right">
-                    <ul>
-                        <li><a href="#" class="facebook"> </a></li>
-                        <li><a href="#" class="p"> </a></li>
-                        <li><a href="#" class="twitter"> </a></li>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">首页 <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">产业互联网+</a></li>
+                        <li><a href="#">商业互联网+</a></li>
+                        <li><a href="#">精彩活动</a></li>
+                        <li><a href="#">成长社区</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">关于我们 <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">One more separated link</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">Link</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
-                <div class="clearfix"> </div>
             </div>
-        </div>
-        <div class="banner">
-    		<div class="container">
-    			<div class="banner-navigation">
-    				<div class="banner-nav">
-    						<ul class="flexy-menu orange nav1">
-    							<li class="hvr-sweep-to-bottom cap right"><a href="index.html">Home</a></li>
-    							<li class="hvr-sweep-to-bottom right"><a href="about.html">About Us</a></li>
-    							<li class="hvr-sweep-to-bottom right"><a href="#">Services</a>
-    								<ul>
-    									<li><a href="#">Service1</a></li>
-    									<li><a href="#">Service2</a>
-    										<ul>
-    											<li><a href="#">Service4</a></li>
-    											<li><a href="#">Service5</a></li>
-    											<li><a href="#">Service6</a></li>
-    										</ul>
-    									</li>
-    									<li><a href="#">Service3</a></li>
-    								</ul>
-    							</li>
-    							<li class="hvr-sweep-to-bottom right"><a href="#news" class="scroll">News</a></li>
-    							<li class="hvr-sweep-to-bottom right"><a href="gallery.html">Gallery</a></li>
-    							<li class="hvr-sweep-to-bottom right"><a href="blog.html">Blog</a></li>
-    							<li class="hvr-sweep-to-bottom right"><a href="contact.html">Contact Us</a></li>
-    						</ul>
-    					<div class="clearfix"> </div>
-    				</div>
-    			</div>
-    			<div class="logo">
-    				<a href="index.html"><img src="images/logo.png" alt=" " /></a>
-    			</div>
-    			<div class="banner-info">
-    				<h1>Welcome To Diving Club</h1>
-    				<p>comprehensive swimming information</p>
-    			</div>
-    		</div>
-    	</div>
+        </nav> -->
+
         <div class="clearfix"></div>
-        <div class="container main-content">
+        <div class="container main-content" id="content-wrapper">
             {%block name="content"%}{%/block%}
         </div>
-        <div class="footer container-fluid">
-            <div class="contact container">
-            &copy;luoqongbo 2016
-            </div>
-        </div>
+        <div class="clearfix"></div>
+        {%include file="./common/footer.tpl"%}
     </div>
 {%/block%}
-{%js path="front" file="bootstrap,flexy-menu"%}
+{%js path="front" file="bootstrap,move-top,global"%}
+<script type="text/javascript">
+    $(document).ready(function(){
+        // $(".flexy-menu").flexymenu({speed: 400,type: "horizontal",align: "right"});
+        $().UItoTop({ easingType: 'easeOutQuart' });
+    });
+</script>
 {%block body_js%}{%/block%}
 </body>
 </html>

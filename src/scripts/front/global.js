@@ -1,5 +1,4 @@
-var init = [];
-init.push(function () {
+$(function () {
     $("#content-wrapper").on("click", ".dialog", function (event) {
         event.preventDefault();
         event.stopPropagation();

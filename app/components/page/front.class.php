@@ -6,6 +6,7 @@ class components_page_front extends components_page {
     {
         parent::__construct($isNeedLogin);
         $this->_tplParams['bm_ak'] = constant::BMAP_KEY;
+        $this->_tplParams['nav'] = '';
     }
 
     public function render($tpl, $dir = 'front') {

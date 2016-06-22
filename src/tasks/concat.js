@@ -5,12 +5,6 @@ module.exports = function (front_paths, admin_paths) {
                 separator: ';\n'
             },
             files: [
-                {
-                    dest: front_paths.js_dest + 'global.js',
-                    src: [
-                        front_paths.js_src + 'global/*.js'
-                    ]
-                },
                 // Bootstrap
                 {
                     dest: front_paths.js_dest + 'bootstrap.js',
