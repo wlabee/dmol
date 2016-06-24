@@ -56,7 +56,7 @@ class controller_main extends components_page_front {
             $srv_itt = new service_intention();
             $succ = $srv_itt->add($data);
             if ($succ === false) {
-                $this->response(-1, '提交失败');
+                $this->response(-1, '提交失败,'.$srv_itt->getError());
             }
             $this->response(1, '保存成功');
         }

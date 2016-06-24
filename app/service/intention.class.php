@@ -50,7 +50,7 @@ class service_intention extends components_service
         return $this->_invokeTransaction(array('dmol'), array(
             $this,
             'changeStatus'
-        ), array(0));
+        ), array(2));
     }
     //改变状态（锁定解锁）
     protected function changeStatus($status)

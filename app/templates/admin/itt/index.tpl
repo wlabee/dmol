@@ -54,7 +54,7 @@
                     <tr>
                         <td>{%$item.id%}</td>
                         <td>{%$item.name%}</td>
-                        <td>{%$item.moible%}</td>
+                        <td>{%$item.mobile%}</td>
                         <td>{%$item.create_time|date_format:"%Y-%m-%d %H:%M:%s"%}</td>
                         <td>
                             {%foreach from=$item.params key=pk item=param%}
@@ -68,6 +68,10 @@
                             {%if $item.status eq 0%}
                             <a href="intention/todone?id={%$item.id%}" class="dialog" data-ask="">处理</a>
                             <a href="intention/tothrew?id={%$item.id%}" class="dialog" data-ask="">丢弃</a>
+                            {%elseif $item.status eq 1%}
+                            已处理
+                            {%else%}
+                            已丢弃
                             {%/if%}
                         </td>
                     </tr>
