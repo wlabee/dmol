@@ -25,8 +25,9 @@
                 <button type="submit" class="btn btn-primary">Search</button>
                 <!-- <a href="dma/add" class="btn btn-success">添加渠道</a> -->
                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">
-            	  添加内容
+            	  添加渠道
             	</button>
+                <a href="#">批量导出</a>
             </form>
         </div>
     </div>
@@ -47,8 +48,8 @@
                         <td>{%$item.id%}</td>
                         <td>{%constant::PM_URL%}/dm/{%$item.dm_id%}?pmcode={%$item.pmcode%}</td>
                         <td>
-                            <a href="dma/pmcode?dmid={%$item.id%}" class="dialog">渠道统计</a>
-                            <a href="dma/delete?dmid={%$item.id%}" class="dialog" data-ask="">删除</a>
+                            <a href="{%$item.id%}" class="dialog">渠道统计</a>
+                            <a href="pmcode/delete?id={%$item.id%}" class="dialog" data-ask="">删除</a>
                         </td>
                     </tr>
                     {%foreachelse%}

@@ -6,6 +6,8 @@ $(document).ready(function(){
         var id = $(this).data("dialog_id");
         if (typeof(id) == "undefined" || id == '') {
             //创建
+            var x_title = $(this).data('xtitle');
+            x_title = x_title ? x_title : '系统提示';
             id = "dialog_" + (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
             var html = '';
             html += '<div id="' + id + '" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">';
@@ -13,7 +15,7 @@ $(document).ready(function(){
             html += '        <div class="modal-content">';
             html += '            <div class="modal-header">';
             html += '                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>';
-            html += '                <h4 class="modal-title" id="myModalLabel">系统提示</h4>';
+            html += '                <h4 class="modal-title" id="myModalLabel">'+x_title+'</h4>';
             html += '            </div>';
             html += '            <div class="modal-body">';
             html += '            加载中...';

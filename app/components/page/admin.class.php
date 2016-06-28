@@ -20,7 +20,12 @@ class components_page_admin extends components_page {
         $sub = new admin_module_submenu('DM管理', 'fa-paper-plane', '#');
         $sub->add(new admin_module_link('DM列表', 'fa-plus', '/dma'));
         $sub->add(new admin_module_link('DM标签', 'fa-plus', '/mark'));
-        $sub->add(new admin_module_link('DM标签组', 'fa-plus', '/markgp'));
+        // $sub->add(new admin_module_link('DM标签组', 'fa-plus', '/markgp'));
+        $menu->add($sub);
+
+        $sub = new admin_module_submenu('其他', 'fa-paper-plane', '#');
+        $sub->add(new admin_module_link('意向需求', 'fa-plus', '/intention'));
+        $sub->add(new admin_module_link('活动管理', 'fa-plus', '/activity'));
         $menu->add($sub);
 
         return $menu->getHtml();

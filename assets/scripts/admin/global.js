@@ -74,7 +74,7 @@ init.push(function () {
                     todayBtn: "linked",
                     forceParse: true,
                     autoclose: true,
-                    todayHighlight: true
+                    todayHighlight: true,
                 });
             });
             dialog.off("click", ".primary").on("click", ".primary", function (e) {

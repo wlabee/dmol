@@ -15,7 +15,7 @@ class admin_pmcode extends components_page_admin {
             $this->response(-1, '无效的DM');
         }
 
-        $where = array('dm_id' => $dm_id);
+        $where = array('dm_id' => $dm_id, 'is_delete' => 0);
         if ($pmcode) {
             $where['pmcode'] = $pmcode;
         }
@@ -61,6 +61,6 @@ class admin_pmcode extends components_page_admin {
         if ($succ === false) {
             $this->response(-1, $srv_pmcode->getError());
         }
-        $this->response(0, 'success');
+        $this->response(0, 'success', 'self');
     }
 }
