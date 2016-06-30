@@ -2180,12 +2180,12 @@ input[type="submit"] {
 .header .header-left {
   float: left;
 }
-.header .header-left .btn-default {
-  background-color: #FEC514;
-  color: #fff;
-}
 .header .header-right {
   float: right;
+}
+.header .do-search {
+  background-color: #FEC514;
+  color: #fff;
 }
 .banner {
   background: #437B86;
@@ -2194,6 +2194,7 @@ input[type="submit"] {
   -moz-background-size: cover;
   -o-background-size: cover;
   -ms-background-size: cover;
+  margin-bottom: 15px;
 }
 .banner .banner-nav {
   text-align: center;

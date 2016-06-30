@@ -1,21 +1,17 @@
 <div class="header">
     <div class="container">
         <div class="header-left">
+            <a href="/"><img style="height: 50px; width: 120px; display: block;" src="/assets/images/front/default.jpg" alt="" /></a>
+        </div>
+        <div class="header-right">
             <form class="navbar-form navbar-right" role="search">
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Search">
                 </div>
-                <button type="submit" class="btn btn-default" aria-label="Left Align">
+                <button type="submit" class="btn btn-default do-search" aria-label="Left Align">
                     <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                 </button>
             </form>
-        </div>
-        <div class="header-right">
-            <ul>
-                <li><a href="#" class="facebook"> </a></li>
-                <li><a href="#" class="p"> </a></li>
-                <li><a href="#" class="twitter"> </a></li>
-            </ul>
         </div>
         <div class="clearfix"> </div>
     </div>

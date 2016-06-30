@@ -12,6 +12,7 @@ class admin_activity extends components_page_admin {
         $ishot = Tsafe::filter($this->_request['ishot']);
         $ispush = Tsafe::filter($this->_request['ispush']);
 
+        $page = $page ? : 1;
         $limit = 20;
         $where = array('1=1');
         if ($sctitle && Tverify::isID($sctitle)) {
@@ -61,13 +62,20 @@ class admin_activity extends components_page_admin {
             if (! $data['title']) {
                 $this->response(-1, "请填写活动标题");
             }
+            if ($_FILES['image']) {
+                $files = Tfile::upload($_FILES);
+                $files = array_shift($files);
+                $data['logo'] = $files['url'];
+                $files = array_shift($files);
+                $data['image'] = $files['url'];
+            }
 
             $srv_act = new service_activity();
             $succ = $srv_act->add($data);
             if ($succ === false) {
                 $this->response(-1, $srv_act->getError());
             }
-            $this->response(0, 'success', 'self');
+            $this->response(0, '添加活动成功', '/activity');
         }
         return $this->render('activity/form.tpl');
     }

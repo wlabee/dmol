@@ -7,3 +7,4 @@ app/templates_c/*
 .buildpath
 .settings/*
 app/components/db.ini.php
+upfile/*

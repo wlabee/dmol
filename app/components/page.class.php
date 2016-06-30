@@ -185,7 +185,10 @@ class components_page extends SGui {
         } else {
             $params['info'] = $info;
         }
-        return $this->render("common/page.tpl", $params);
+        foreach ($params as $key => $value) {
+            $this->_tplParams[$key] = $value;
+        }
+        return $this->render("page.tpl", 'common');
     }
 
     public function getUrlParams() {

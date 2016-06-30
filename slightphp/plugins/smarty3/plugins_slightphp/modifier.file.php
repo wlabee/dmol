@@ -1,6 +1,9 @@
 <?php
 function smarty_modifier_file($string, $params = '') {
-    return UPLOAD_DIR . $string;
+    if ($string) {
+        return UPLOAD_DIR . $string;
+    }
+    return '/assets/images/front/default.jpg';
 }
 
 ?>

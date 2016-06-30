@@ -37,7 +37,7 @@
                     </select>
                 </div>
                 <button type="submit" class="btn btn-primary">Search</button>
-                <a href="activity/add" data-xtitle="添加活动" class="btn btn-success dialog">添加活动</a>
+                <a href="activity/add" data-xtitle="添加活动" class="btn btn-success">添加活动</a>
             </form>
         </div>
     </div>
@@ -59,7 +59,7 @@
                         <td><input type="text" name="sortnum[{%$item.act_id%}][]" value="{%$item.sort%}" style="width:40px;"></td>
                         <td>{%$item.act_id%}</td>
                         <td>{%$item.title%}</td>
-                        <td>{%$item.create_time%}</td>
+                        <td>{%$item.create_time|datetime%}</td>
                         <td>
                             <a href="activity/edit?id={%$item.act_id%}" class="dialog">编辑</a>
                             <a href="activity/delete?id={%$item.act_id%}" class="dialog" data-ask="">删除</a>

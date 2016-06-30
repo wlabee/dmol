@@ -55,7 +55,7 @@
                         <td>{%$item.id%}</td>
                         <td>{%$item.name%}</td>
                         <td>{%$item.mobile%}</td>
-                        <td>{%$item.create_time|date_format:"%Y-%m-%d %H:%M:%s"%}</td>
+                        <td>{%$item.create_time|datetime%}</td>
                         <td>
                             {%foreach from=$item.params key=pk item=param%}
                             <p>

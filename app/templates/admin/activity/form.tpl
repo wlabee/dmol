@@ -1,4 +1,10 @@
-<form action="{%$smarty.server.REQUEST_URI%}" class="panel form-horizontal">
+{%extends file="layout.tpl"%}
+{%block top_style%}
+    <style type="text/css">
+    </style>
+{%/block%}
+{%block content%}
+<form action="" class="panel form-horizontal" enctype="multipart/form-data" method="post">
     <input type="hidden" name="act_id" value="{%$act.act_id%}"/>
     <div class="panel-body">
         <div class="row form-group">
@@ -17,6 +23,12 @@
             <label class="col-sm-4 control-label">链接:</label>
             <div class="col-sm-8">
                 <input type="text" name="url" class="form-control" value="{%$act.url%}">
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="col-sm-4 control-label">logo:</label>
+            <div class="col-sm-8">
+                <input type="file" name="logo" class="form-control">
             </div>
         </div>
         <div class="row form-group">
@@ -65,5 +77,16 @@
                 <input type="text" name="end_time" class="form-control datepicker" value="{%$act.end_time%}">
             </div>
         </div>
+        <div class="row form-group">
+            <label class="col-sm-4 control-label"></label>
+            <input type="submit" class="btn btn-default" name="submit" value="提交">
+        </div>
     </div>
 </form>
+{%/block%}
+{%block bottom_js%}
+    <script>
+        init.push(function () {
+        });
+    </script>
+{%/block%}

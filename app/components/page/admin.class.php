@@ -31,9 +31,9 @@ class components_page_admin extends components_page {
         return $menu->getHtml();
     }
 
-    public function render($tpl) {
-        $config['compile_dir'] = 'admin';
-        $config['template_dir'] = 'admin';
+    public function render($tpl, $dir = 'admin') {
+        $config['compile_dir'] = $dir;
+        $config['template_dir'] = $dir;
         return parent::render($tpl, $config);
     }
 

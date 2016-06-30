@@ -21,6 +21,7 @@ class service_activity extends components_service
         $fildes = array(
             'title',
             'description',
+            'logo',
             'image',
             'url',
             'start_time',
@@ -37,14 +38,17 @@ class service_activity extends components_service
         if (!$in_data['description']) {
             throw new Exception('描述必须');
         }
-        // if (!$in_data['image']) {
-        //     throw new Exception('图片必须');
-        // }
+        if (!$in_data['logo']) {
+            throw new Exception('logo图片必须');
+        }
         if (!$in_data['url'] && !$in_data['content']) {
             throw new Exception('需要链接或内容');
         }
-        $in_data['start_time'] = strtotime($in_data['start_time']);
-        $in_data['end_time'] = strtotime($in_data['end_time']);
+        if ($in_data['url'] && Tverify::isUrl($in_data['url'])) {
+            throw new Exception('请填写正确的链接地址');
+        }
+        $in_data['start_time'] = (int)strtotime($in_data['start_time']);
+        $in_data['end_time'] = (int)strtotime($in_data['end_time']);
         $in_data['is_push'] = $in_data['is_push']?1:0;
         $in_data['is_hot'] = $in_data['is_hot']?1:0;
         $in_data['sort'] = $in_data['sort']?:99;
@@ -73,6 +77,7 @@ class service_activity extends components_service
         $fildes = array(
             'title',
             'description',
+            'logo',
             'image',
             'url',
             'start_time',
@@ -89,16 +94,19 @@ class service_activity extends components_service
         if (!$in_data['description']) {
             throw new Exception('描述必须');
         }
-        if (!$in_data['image']) {
+        if (!$in_data['logo']) {
             throw new Exception('图片必须');
         }
         if (!$in_data['url'] && !$in_data['content']) {
             throw new Exception('需要链接或内容');
         }
-        $in_data['start_time'] = strtotime($in_data['start_time']);
-        $in_data['end_time'] = strtotime($in_data['end_time']);
-        $in_data['is_push'] = $in_data['ispush']?1:0;
-        $in_data['is_hot'] = $in_data['ishot']?1:0;
+        if ($in_data['url'] && Tverify::isUrl($in_data['url'])) {
+            throw new Exception('请填写正确的链接地址');
+        }
+        $in_data['start_time'] = (int)strtotime($in_data['start_time']);
+        $in_data['end_time'] = (int)strtotime($in_data['end_time']);
+        $in_data['is_push'] = $in_data['is_push']?1:0;
+        $in_data['is_hot'] = $in_data['is_hot']?1:0;
         $in_data['sort'] = $in_data['sort']?:99;
 
         $succ = $this->model->update(array('act_id' => $this->id), $in_data);

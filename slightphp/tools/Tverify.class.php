@@ -78,7 +78,7 @@ class Tverify{
 		$RegExp = '/^[0-9]{4,6}$/';
 		return preg_match($RegExp, $postcode) ? true : false;
 	}
-	
+
 	//验证银行卡号
 	public static function isBankCard($card) {
 		$RegExp = "/^\d{12,}$/";
@@ -204,7 +204,7 @@ class Tverify{
 		$RegExp = "/^[A-Za-z0-9]{8}-[A-Za-z0-9]{1}/";//组织机构代码，8位数字或字母加上一个"-"再加一位数字或字母
 		return preg_match($RegExp, $str) ? true : false;
 	}
-	
+
 	/**
 	 * 是否符合编号格式
 	 */
@@ -214,7 +214,7 @@ class Tverify{
 		}
 		return false;
 	}
-	
+
 	public static function checkCaptcha($word){
 		if($_SESSION['captcha']==$word){
 			unset($_SESSION['captcha']);
@@ -223,5 +223,12 @@ class Tverify{
 			unset($_SESSION['captcha']);
 			return false;
 		}
+	}
+	public static function isUrl($url)
+	{
+		if(!preg_match('/http(s)?:\/\/[\w.]+[\w\/]*[\w.]*\??[\w=&\+\%]*/is',$url)){
+		   return false;
+	   }
+	   return true;
 	}
 }
