@@ -28,23 +28,39 @@
         <div class="row form-group">
             <label class="col-sm-4 control-label">logo:</label>
             <div class="col-sm-8">
-                <input type="file" name="logo" class="form-control">
+                <input type="file" name="logo" value="" class="form-control">
             </div>
         </div>
+        {%if $act.logo%}
+        <div class="row form-group">
+            <label class="col-sm-4 control-label"></label>
+            <div class="col-sm-8">
+                <img src="{%$act.logo|file%}" alt="" width="90"/>
+            </div>
+        </div>
+        {%/if%}
         <div class="row form-group">
             <label class="col-sm-4 control-label">图片:</label>
             <div class="col-sm-8">
-                <input type="file" name="image" class="form-control">
+                <input type="file" name="image" value="" class="form-control">
             </div>
         </div>
+        {%if $act.image%}
+        <div class="row form-group">
+            <label class="col-sm-4 control-label"></label>
+            <div class="col-sm-8">
+                <img src="{%$act.image|file%}" alt="" width="90"/>
+            </div>
+        </div>
+        {%/if%}
         <div class="row form-group">
             <label class="col-sm-4 control-label">推送:</label>
             <div class="col-sm-8">
                 <label class="radio-inline">
-                  <input type="radio" name="ispush" id="inlineRadio1" value="1"> 是
+                  <input type="radio" name="ispush" id="inlineRadio1" value="1" {%if $act.is_push eq 1%}checked{%/if%}> 是
                 </label>
                 <label class="radio-inline">
-                  <input type="radio" checked name="ispush" id="inlineRadio2" value="0"> 否
+                  <input type="radio" {%if ! $act.is_push%}checked{%/if%} name="ispush" id="inlineRadio2" value="0"> 否
                 </label>
             </div>
         </div>
@@ -52,10 +68,10 @@
             <label class="col-sm-4 control-label">热门:</label>
             <div class="col-sm-8">
                 <label class="radio-inline">
-                  <input type="radio" name="ishot" id="inlineRadio3" value="1"> 是
+                  <input type="radio" name="ishot" id="inlineRadio3" value="1" {%if $act.is_hot eq 1%}checked{%/if%}> 是
                 </label>
                 <label class="radio-inline">
-                  <input type="radio" checked name="ishot" id="inlineRadio4" value="0"> 否
+                  <input type="radio" {%if ! $act.is_hot%}checked{%/if%} name="ishot" id="inlineRadio4" value="0"> 否
                 </label>
             </div>
         </div>
@@ -68,13 +84,13 @@
         <div class="row form-group" >
             <label class="col-sm-4 control-label">开始时间:</label>
             <div class="col-sm-8" style="z-index:1100;">
-                <input type="text" name="start_time" class="form-control datepicker" value="{%$act.start_time%}">
+                <input type="text" name="start_time" class="form-control datepicker" value="{%$act.start_time|datetime%}">
             </div>
         </div>
         <div class="row form-group">
             <label class="col-sm-4 control-label">结束时间:</label>
             <div class="col-sm-8" style="z-index:1100;">
-                <input type="text" name="end_time" class="form-control datepicker" value="{%$act.end_time%}">
+                <input type="text" name="end_time" class="form-control datepicker" value="{%$act.end_time|datetime%}">
             </div>
         </div>
         <div class="row form-group">

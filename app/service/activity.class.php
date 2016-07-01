@@ -94,9 +94,6 @@ class service_activity extends components_service
         if (!$in_data['description']) {
             throw new Exception('描述必须');
         }
-        if (!$in_data['logo']) {
-            throw new Exception('图片必须');
-        }
         if (!$in_data['url'] && !$in_data['content']) {
             throw new Exception('需要链接或内容');
         }
@@ -108,6 +105,9 @@ class service_activity extends components_service
         $in_data['is_push'] = $in_data['is_push']?1:0;
         $in_data['is_hot'] = $in_data['is_hot']?1:0;
         $in_data['sort'] = $in_data['sort']?:99;
+
+        if(! $in_data['logo']) unset($in_data['logo']);
+        if(! $in_data['image']) unset($in_data['image']);
 
         $succ = $this->model->update(array('act_id' => $this->id), $in_data);
         if ($succ === false) {
@@ -200,6 +200,25 @@ class service_activity extends components_service
             throw new Exception('数据操作错误');
             // throw new Exception($this->model->getDbError());
         }
+        return true;
+    }
+
+    public function saveSort($sort)
+    {
+        if (empty($sort) || ! is_array($sort)) {
+            $this->setError(-1, '无效参数');
+            return false;
+        }
+
+        $data = array();
+        foreach ($sort as $key => $value) {
+            $data[$key] = array(
+                'sort' => $value,
+            );
+        }
+
+        $m_act = new model_dm_activity();
+        $succ = $m_act->updateMultiple($data, 'act_id');
         return true;
     }
 }

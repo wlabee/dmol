@@ -6,11 +6,18 @@ class admin_activity extends components_page_admin {
     }
 
     public function pageIndex($inPath) {
+        if ($_POST['saveorder']) {
+            $sort = $_POST['sortnum'];
+            if ($sort) {
+                $srv_act = new service_activity();
+                $srv_act->saveSort($sort);
+            }
+        }
         $page = Tsafe::filter($this->_request['page'], 'int');
         $sctitle = Tsafe::filter($this->_request['sctitle']);
-        $scstatus = Tsafe::filter($this->_request['scstatus']);
-        $ishot = Tsafe::filter($this->_request['ishot']);
-        $ispush = Tsafe::filter($this->_request['ispush']);
+        $scstatus = Tsafe::filter($this->_request['scstatus'], 'int');
+        $ishot = Tsafe::filter($this->_request['ishot'], 'int');
+        $ispush = Tsafe::filter($this->_request['ispush'], 'int');
 
         $page = $page ? : 1;
         $limit = 20;
@@ -20,16 +27,18 @@ class admin_activity extends components_page_admin {
         } elseif($sctitle) {
             $where[] = "title like '$sctitle%'";
         }
+        $scstatus = $scstatus?$scstatus:1;
+        $_GET['scstatus'] = $scstatus;
         if ($scstatus) {
             $where['status'] = $scstatus;
         }
         if ($ishot) {
             $ishot = $ishot > 0 ? $ishot : 0;
-            $where['ishot'] = $ishot;
+            $where['is_hot'] = $ishot;
         }
         if ($ispush) {
             $ispush = $ispush > 0 ? $ispush : 0;
-            $where['ispush'] = $ispush;
+            $where['is_push'] = $ispush;
         }
 
         $m_mark = new model_dm_activity();
@@ -62,12 +71,16 @@ class admin_activity extends components_page_admin {
             if (! $data['title']) {
                 $this->response(-1, "请填写活动标题");
             }
-            if ($_FILES['image']) {
+            if ($_FILES['image'] || $_FILES['logo']) {
                 $files = Tfile::upload($_FILES);
-                $files = array_shift($files);
-                $data['logo'] = $files['url'];
-                $files = array_shift($files);
-                $data['image'] = $files['url'];
+                if ($_FILES['logo']) {
+                    $files = array_shift($files);
+                    $data['logo'] = $files['url'];
+                }
+                if ($_FILES['image']) {
+                    $files = array_shift($files);
+                    $data['image'] = $files['url'];
+                }
             }
 
             $srv_act = new service_activity();
@@ -82,38 +95,58 @@ class admin_activity extends components_page_admin {
 
     public function pageEdit()
     {
-        $mk_id = Tsafe::filter($this->_request['mkid'], 'int');
-        if (!$mk_id) {
-            $this->response(-1, '无效ID');
+        $act_id = Tsafe::filter($this->_request['id'], 'int');
+        if (!$act_id) {
+            $this->response(-1, '无效活动');
         }
         if ($this->_is_post) {
             //do edit
-            $mk_name = Tsafe::filter($this->_request['mk_name']);
-            if (!$mk_name) {
-                $this->response(-1, "无效的标签名");
+            $data = array(
+                'title' => Tsafe::filter($this->_request['title']),
+                'description' => Tsafe::filter($this->_request['description']),
+                'url' => Tsafe::filter($this->_request['url']),
+                'is_push' => Tsafe::filter($this->_request['ispush']),
+                'is_hot' => Tsafe::filter($this->_request['ishot']),
+                'sort' => Tsafe::filter($this->_request['sort']),
+                'start_time' => Tsafe::filter($this->_request['start_time']),
+                'end_time' => Tsafe::filter($this->_request['end_time']),
+            );
+            if (! $data['title']) {
+                $this->response(-1, "请填写活动标题");
             }
-            $srv_mk = new service_dmamark($mk_id);
-            $succ = $srv_mk->edit(array('mk_name' => $mk_name));
+            if ($_FILES['image']['error'] == 0 || $_FILES['logo']['error'] == 0) {
+                $files = Tfile::upload($_FILES);
+                if ($_FILES['logo']['error'] == 0) {
+                    $files = array_shift($files);
+                    $data['logo'] = $files['url'];
+                }
+                if ($_FILES['image']['error'] == 0) {
+                    $files = array_shift($files);
+                    $data['image'] = $files['url'];
+                }
+            }
+
+            $srv_act = new service_activity($act_id);
+            $succ = $srv_act->edit($data);
             if ($succ === false) {
-                $this->response(-1, $srv_mk->getError());
+                $this->response(-1, $srv_act->getError());
             }
-            $this->response(0, 'success', 'self');
+            $this->response(0, '编辑成功', '/activity');
         }
-        $this->_tplParams['mktypes'] = config::_get('mark_type');
-        $srv_mk = new service_dmamark($mk_id);
-        $this->_tplParams['mkinfo'] = $srv_mk->get();
-        return $this->render('mark/form.tpl');
+        $srv_act = new service_activity($act_id);
+        $this->_tplParams['act'] = $srv_act->get();
+        return $this->render('activity/form.tpl');
     }
 
     public function pageDelete($value='')
     {
-        $mk_id = Tsafe::filter($this->_request['mkid'], 'int');
-        if (!$mk_id) {
+        $act_id = Tsafe::filter($this->_request['id'], 'int');
+        if (!$act_id) {
             $this->response(-1, '无效ID');
         }
 
-        $srv_mk = new service_dmamark($mk_id);
-        $succ = $srv_mk->delete();
+        $srv_act = new service_activity($act_id);
+        $succ = $srv_act->delete();
         if ($succ === false) {
             $this->response(-1, $srv_mk->getError());
         }

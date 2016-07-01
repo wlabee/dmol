@@ -18,8 +18,8 @@
                     <label class="sr-only" for="scname">状态：</label>
                     <select class="form-control" name="scstatus">
                         <option value="0">全部</option>
-                        <option value="1" {%if $smarty.get.scstatus eq 2%}selected="selected"{%/if%}>正常</option>
-                        <option value="2" {%if $smarty.get.scstatus eq 2%}selected="selected"{%/if%}>禁用</option>
+                        <option value="1" {%if $smarty.get.scstatus eq 1%}selected="selected"{%/if%}>正常</option>
+                        <option value="2" {%if $smarty.get.scstatus eq 2%}selected="selected"{%/if%}>删除</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -44,34 +44,39 @@
     <div class="panel">
         <div class="panel-body">
             <table class="table">
-                <thead>
-                    <tr>
-                        <th>排序</th>
-                        <th>活动ID</th>
-                        <th>标题</th>
-                        <th>时间</th>
-                        <th>操作</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {%foreach from=$list item=item%}
-                    <tr>
-                        <td><input type="text" name="sortnum[{%$item.act_id%}][]" value="{%$item.sort%}" style="width:40px;"></td>
-                        <td>{%$item.act_id%}</td>
-                        <td>{%$item.title%}</td>
-                        <td>{%$item.create_time|datetime%}</td>
-                        <td>
-                            <a href="activity/edit?id={%$item.act_id%}" class="dialog">编辑</a>
-                            <a href="activity/delete?id={%$item.act_id%}" class="dialog" data-ask="">删除</a>
-                        </td>
-                    </tr>
-                    {%foreachelse%}
-                    <tr>
-                        <td colspan="4">暂无数据...</td>
-                    </tr>
-                    {%/foreach%}
-                </tbody>
-            </table>
+                <form class="" method="post">
+                    <thead>
+                        <tr>
+                            <th>排序</th>
+                            <th>活动ID</th>
+                            <th>标题</th>
+                            <th>时间</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {%foreach from=$list item=item%}
+                        <tr>
+                            <td><input type="text" name="sortnum[{%$item.act_id%}]" value="{%$item.sort%}" style="width:40px;"></td>
+                            <td>{%$item.act_id%}</td>
+                            <td>{%$item.title%}</td>
+                            <td>{%$item.create_time|datetime%}</td>
+                            <td>
+                                <a href="activity/edit?id={%$item.act_id%}" class="">编辑</a>
+                                <a href="activity/delete?id={%$item.act_id%}" class="dialog" data-ask="">删除</a>
+                            </td>
+                        </tr>
+                        {%foreachelse%}
+                        <tr>
+                            <td colspan="4">暂无数据...</td>
+                        </tr>
+                        {%/foreach%}
+                    </tbody>
+                </table>
+                <div class="">
+                    <input type="submit" class="btn btn-primary" name="saveorder" value="保存排序">
+                </div>
+            </form>
         </div>
     </div>
 {%/block%}

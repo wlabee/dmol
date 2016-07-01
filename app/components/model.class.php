@@ -171,6 +171,36 @@ abstract class components_model {
     }
 
     /**
+     * 更新多条数据
+     * 数组的主键作为 表的主键来更新
+     * @example $this->updateMultiple(array(array(('key' => 'id',value => 1, 'data' => array('user_name' => 'aa')))));
+     * @example $this->updateMultiple(array(1 => array('user_name' => 'aa'));
+     */
+    public function updateMultiple($data = array(), $key_name) {
+        if (!$data) {
+            return false;
+        }
+        $sql = "UPDATE " . $this->_tableName . " set ";
+
+        $sqls = array();
+        foreach ($data as $prkey => $row) {
+            $tpl_sql = '';
+            foreach ($row as $key => $value) {
+                $tpl_sql .= " {$key} = '{$value}' ,";
+            }
+            $tpl_sql = substr($tpl_sql, 0, -1);
+
+            $sqls[] = $sql . $tpl_sql . " where {$key_name} = '{$prkey}' ";
+        }
+        if ($sqls) {
+            foreach ($sqls as $value) {
+                $this->_db->query($value);
+            }
+        }
+        return true;
+    }
+
+    /**
      * 获取首行首列
      * @final
      * @param mixed $condition 搜索条件

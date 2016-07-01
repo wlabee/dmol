@@ -3,7 +3,10 @@ function smarty_modifier_file($string, $params = '') {
     if ($string) {
         return UPLOAD_DIR . $string;
     }
-    return '/assets/images/front/default.jpg';
+    if ($params == 'default') {
+        return '/assets/images/front/default.jpg';
+    }
+    return '';
 }
 
 ?>
