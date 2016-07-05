@@ -67,21 +67,35 @@ class admin_activity extends components_page_admin {
                 'sort' => Tsafe::filter($this->_request['sort']),
                 'start_time' => Tsafe::filter($this->_request['start_time']),
                 'end_time' => Tsafe::filter($this->_request['end_time']),
+                'content' => $_POST['content'],
             );
             if (! $data['title']) {
                 $this->response(-1, "请填写活动标题");
             }
-            if ($_FILES['image'] || $_FILES['logo']) {
-                $files = Tfile::upload($_FILES);
-                if ($_FILES['logo']) {
-                    $files = array_shift($files);
-                    $data['logo'] = $files['url'];
-                }
-                if ($_FILES['image']) {
-                    $files = array_shift($files);
-                    $data['image'] = $files['url'];
-                }
+            if (!$data['url'] && !$data['content']) {
+                $this->response(-1, "需要链接或内容");
             }
+            if ($_FILES['logo']['error'] == 0) {
+                $logo['logo'] = $_FILES['logo'];
+                $files = Tfile::upload($logo);
+                $data['logo'] = $files[0]['url'];
+            }
+            if ($_FILES['image']['error'] == 0) {
+                $image['image'] = $_FILES['image'];
+                $files = Tfile::upload($image);
+                $data['image'] = $files[0]['url'];
+            }
+            // if ($_FILES['image'] || $_FILES['logo']) {
+            //     $files = Tfile::upload($_FILES);
+            //     if ($_FILES['logo']) {
+            //         $files = array_shift($files);
+            //         $data['logo'] = $files['url'];
+            //     }
+            //     if ($_FILES['image']) {
+            //         $files = array_shift($files);
+            //         $data['image'] = $files['url'];
+            //     }
+            // }
 
             $srv_act = new service_activity();
             $succ = $srv_act->add($data);
@@ -110,20 +124,23 @@ class admin_activity extends components_page_admin {
                 'sort' => Tsafe::filter($this->_request['sort']),
                 'start_time' => Tsafe::filter($this->_request['start_time']),
                 'end_time' => Tsafe::filter($this->_request['end_time']),
+                'content' => $_POST['content'],
             );
             if (! $data['title']) {
                 $this->response(-1, "请填写活动标题");
             }
-            if ($_FILES['image']['error'] == 0 || $_FILES['logo']['error'] == 0) {
-                $files = Tfile::upload($_FILES);
-                if ($_FILES['logo']['error'] == 0) {
-                    $files = array_shift($files);
-                    $data['logo'] = $files['url'];
-                }
-                if ($_FILES['image']['error'] == 0) {
-                    $files = array_shift($files);
-                    $data['image'] = $files['url'];
-                }
+            if (!$data['url'] && !$data['content']) {
+                $this->response(-1, "需要链接或内容");
+            }
+            if ($_FILES['logo']['error'] == 0) {
+                $logo['logo'] = $_FILES['logo'];
+                $files = Tfile::upload($logo);
+                $data['logo'] = $files[0]['url'];
+            }
+            if ($_FILES['image']['error'] == 0) {
+                $image['image'] = $_FILES['image'];
+                $files = Tfile::upload($image);
+                $data['image'] = $files[0]['url'];
             }
 
             $srv_act = new service_activity($act_id);

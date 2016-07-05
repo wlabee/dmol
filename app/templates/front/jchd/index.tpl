@@ -46,12 +46,12 @@
             {%foreach from=$list item=item%}
             <div class="item-info">
                 <div class="item-logo">
-                    <a href="{%$item.url%}" target="_blank">
+                    <a href="{%if $item.url%}{%$item.url%}{%else%}article/act_{%$item.act_id%}{%/if%}" target="_blank">
                     <img data-src="holder.js/100x100/auto/#777:#555/text:First slide" data-holder-rendered="true" src="{%$item.logo|file:'default'%}" alt="{%$item.title%}" />
                     </a>
                 </div>
                 <div class="item-title">
-                    <a href="{%$item.url%}" target="_blank">{%$item.title%}</a>
+                    <a href="{%if $item.url%}{%$item.url%}{%else%}article/act_{%$item.act_id%}{%/if%}" target="_blank">{%$item.title%}</a>
                 </div>
                 <div class="item-sinfo">
                     <p>
