@@ -3,6 +3,8 @@ RewriteEngine   on
 RewriteCond %{QUERY_STRING} ^(.*)$
 RewriteRule	^dm/(\d+)$			index.php/controller/dm/detail?dmid=$1&%1 [L]
 
+RewriteRule	^article/act-(\d+)$			/jchd/view?id=$1 
+
 RewriteCond	%{REQUEST_FILENAME}	!-f
 RewriteCond	%{REQUEST_FILENAME}	!-d
 RewriteCond	%{THE_REQUEST}		!^(.*)/assets(.*)$

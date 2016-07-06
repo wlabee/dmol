@@ -10,7 +10,7 @@
         <meta name="keywords" content="{%$keywords%}"/>
         {%block name="meta"%}{%/block%}
         {%css path="front" file="bootstrap,layout"%}
-        {%js type="plugin" file="jquery.min.js"%}
+        {%js type="plugin" file="jquery.min.js,holder.min.js"%}
         {%js path="front" file="global"%}
         {%block head_style%}{%/block%}
     {%/block%}

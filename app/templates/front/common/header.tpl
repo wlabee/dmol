@@ -1,7 +1,7 @@
 <div class="header">
     <div class="container">
         <div class="header-left">
-            <a href="/"><img style="height: 50px; width: 120px; display: block;" src="/assets/images/front/default.jpg" alt="" /></a>
+            <a href="/"><img data-src="holder.js/120x50" src="" alt="" /></a>
         </div>
         <div class="header-right">
             <form class="navbar-form navbar-right" role="search">
@@ -25,7 +25,7 @@
                         <li class=" {%if $nav eq 'cyhl'%}cap{%/if%}"><a href="/cyhl">产业互联网+</a></li>
                         <li class=" {%if $nav eq 'syhl'%}cap{%/if%}"><a href="/syhl">商业互联网+</a></li>
                         <li class=" {%if $nav eq 'jchd'%}cap{%/if%}"><a href="/jchd">精彩活动</a></li>
-                        <li class=" {%if $nav eq 'bbs'%}cap{%/if%}"><a href="/bbs">成长社区</a></li>
+                        <li class=" {%if $nav eq 'bbs'%}cap{%/if%}"><a href="/bbs" target="_blank">成长社区</a></li>
                         <li class="dropdown {%if $nav eq 'about'%}cap{%/if%}">
                             <a href="/about" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">关于我们</a>
                             <ul id="menu1" class="dropdown-menu" aria-labelledby="drop1">
