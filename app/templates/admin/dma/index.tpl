@@ -46,7 +46,7 @@
                         <td>
                             <a href="/dma/edit?dmid={%$item.dm_id%}" class="dialog">编辑</a>
                             <a href="/pmcode?dmid={%$item.dm_id%}">渠道管理</a>
-                            <a href="?dmid={%$item.dm_id%}">统计管理</a>
+                            <a href="stat/dm?dmid={%$item.dm_id%}">统计管理</a>
                             <a href="/dma/delete?dmid={%$item.dm_id%}" class="dialog" data-ask="">删除</a>
                         </td>
                     </tr>

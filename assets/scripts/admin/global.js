@@ -76,6 +76,12 @@ init.push(function () {
                     autoclose: true,
                     todayHighlight: true,
                 });
+                $(".timepicker").timepicker({
+                    todayBtn: "linked",
+                    forceParse: true,
+                    autoclose: true,
+                    todayHighlight: true,
+                });
             });
             dialog.off("click", ".primary").on("click", ".primary", function (e) {
                 e.preventDefault();
@@ -118,6 +124,12 @@ init.push(function () {
         forceParse: true,
         autoclose: true,
         todayHighlight: true
+    });
+    $(".timepicker").timepicker({
+        todayBtn: "linked",
+        forceParse: true,
+        autoclose: true,
+        todayHighlight: true,
     });
 });
 function loading() {

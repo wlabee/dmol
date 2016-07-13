@@ -6,7 +6,7 @@
 {%block content%}
     <div class="panel">
         <div class="panel-heading">
-            <span class="panel-title">DM({%$smarty.get.dmid%})推广码</span>
+            <span class="panel-title">DM(ID={%$smarty.get.dmid%})推广码</span>
         </div>
         <div class="panel-body">
             <form class="form-inline">
@@ -31,7 +31,7 @@
             </form>
         </div>
     </div>
-    <div class="alert alert-success" role="alert">默认推广地址：{%constant::PM_URL%}/dm/{%$smarty.get.dmid%}</div>
+    <div class="alert alert-success" role="alert">默认推广地址：{%constant::PM_URL%}/dm-{%$smarty.get.dmid%}.html</div>
     <div class="panel">
         <div class="panel-body">
             <table class="table">
@@ -46,9 +46,9 @@
                     {%foreach from=$list item=item%}
                     <tr>
                         <td>{%$item.id%}</td>
-                        <td>{%constant::PM_URL%}/dm/{%$item.dm_id%}?pmcode={%$item.pmcode%}</td>
+                        <td>{%constant::PM_URL%}/dm-{%$item.dm_id%}.html?pmcode={%$item.pmcode%}</td>
                         <td>
-                            <a href="{%$item.id%}" class="dialog">渠道统计</a>
+                            <a href="stat/pm?pmcode={%$item.pmcode%}" class="">渠道统计</a>
                             <a href="pmcode/delete?id={%$item.id%}" class="dialog" data-ask="">删除</a>
                         </td>
                     </tr>

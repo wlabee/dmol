@@ -35,23 +35,81 @@ class admin_tool extends components_page {
         echo 'over';
     }
 
-    //微信下单，推送事件模拟
-    public function pageTest1($value='')
+
+    //同步dm维度每日归档
+    public function pageStatDm()
     {
-        $data = '<xml>
-<ToUserName><![CDATA[weixin_media1]]></ToUserName>
-<FromUserName><![CDATA[oDF3iYyVlek46AyTBbMRVV8VZVlI]]></FromUserName>
-<CreateTime>1398144192</CreateTime>
-<MsgType><![CDATA[event]]></MsgType>
-<Event><![CDATA[merchant_order]]></Event>
-<OrderId><![CDATA[123456]]></OrderId>
-<OrderStatus>2</OrderStatus>
-<ProductId><![CDATA[11111]]></ProductId>
-<SkuInfo><![CDATA[10001:1000012;10002:100021]]></SkuInfo>
-</xml>';
-        $header = 'Content-type: text/xml';
-        $ret = Tnet::curl('http://www.onenetv2.com/wechat/fromwechat',$data,'POST',$header);
-        pf($ret);
+        $date = Tsafe::filter($this->_request['date']);
+        $yesterday = date('Y-m-d', strtotime("-1 days"));
+        $date = $date && strtotime($date) ? $date : $yesterday;
+
+        $m_stat = new model_dm_dma_stat();
+        $m_stdm = new model_dm_daily_dm();
+
+        $where = array('1=1');
+        if ($date) {
+            $where['create_date'] = $date;
+        }
+
+        $data = $m_stat->select($where, 'dm_id,log_type,count(log_id) as num', 'dm_id,log_type')->items;
+        $data_m = array();
+        foreach ($data as $key => $value) {
+            switch ($value['log_type']) {
+                case '1':
+                    $data_m[$value['dm_id']]['pv'] = $value['num'];
+                    break;
+                case '2':
+                    $data_m[$value['dm_id']]['uv'] = $value['num'];
+                    break;
+                default:
+                    break;
+            }
+            $data_m[$value['dm_id']]['dm_id'] = $value['dm_id'];
+            $data_m[$value['dm_id']]['create_date'] = $date;
+        }
+        if ($data_m) {
+            $m_stdm->addUpdateMultiple($data_m, array('pv', 'uv'));
+        }
+        exit('over');
+    }
+
+    //同步pmcode维度每日归档
+    public function pageStatPm()
+    {
+        $date = Tsafe::filter($this->_request['date']);
+        $yesterday = date('Y-m-d', strtotime("-1 days"));
+        $date = $date && strtotime($date) ? $date : $yesterday;
+
+        $m_stat = new model_dm_dma_stat();
+        $m_stpm = new model_dm_daily_pm();
+
+        $where = array('1=1','length(pmcode) > 0');
+        if ($date) {
+            $where['create_date'] = $date;
+        }
+
+        $data = $m_stat->select($where, 'dm_id,pmcode,log_type,count(log_id) as num', 'pmcode,log_type')->items;
+        $data_m = array();
+        foreach ($data as $key => $value) {
+            if ($value['pmcode']) {
+                switch ($value['log_type']) {
+                    case '1':
+                    $data_m[$value['dm_id']]['pv'] = $value['num'];
+                    break;
+                    case '2':
+                    $data_m[$value['dm_id']]['uv'] = $value['num'];
+                    break;
+                    default:
+                    break;
+                }
+                $data_m[$value['dm_id']]['pmcode'] = $value['pmcode'];
+                $data_m[$value['dm_id']]['create_date'] = $date;
+            }
+        }
+        if ($data_m) {
+            $m_stpm->addUpdateMultiple($data_m, array('pv', 'uv'));
+        }
+        exit('over');
     }
 
 }
