@@ -65,6 +65,10 @@ class controller_dm extends components_page_front {
             }
         }
 
+        //有内容的直接跳到内容页
+        if ($dm_info['dm_content']) {
+            return $this->render('dm/show.tpl');
+        }
         return $this->dmrender('dm/'.$dmid.'.tpl');
     }
 

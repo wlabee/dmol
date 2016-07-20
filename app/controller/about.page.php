@@ -8,7 +8,7 @@ class controller_about extends components_page_front {
 
     function pageIndex($inPath)
     {
-        return $this->render('index/index.tpl');
+        return $this->render('about/index.tpl');
 
     }
 

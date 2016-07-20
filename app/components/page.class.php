@@ -252,6 +252,9 @@ class components_page extends SGui {
     }
 
     public function render($tpl, $config = array()) {
+        if(isset($_GET['_d'])){
+            pf($this->_tplParams);
+        }
         return parent::render($tpl, $this->_tplParams, $config);
     }
 }

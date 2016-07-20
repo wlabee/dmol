@@ -30,22 +30,36 @@ class admin_dma extends components_page_admin {
 
     public function pageAdd()
     {
+        $dmid = Tsafe::filter($this->_request['dmid']);
         if ($this->_is_post) {
             $data = array(
                 'dm_title' => Tsafe::filter($this->_request['dm_title']),
+                'hashead' => Tsafe::filter($this->_request['hashead'], 'int'),
+                'dm_content' => $_POST['dm_content'],
             );
-            $srv_dma = new service_dma();
-            $succ = $srv_dma->add($data);
+            if ($dmid) {
+                $srv_dma = new service_dma($dmid);
+                $succ = $srv_dma->edit($data);
+            } else {
+                $srv_dma = new service_dma($dmid);
+                $succ = $srv_dma->add($data);
+            }
             if ($succ === false) {
                 $this->response(-1, $srv_dma->getError());
             }
             $this->response(0, 'success','/dma');
         }
 
-        $srv_mk = new service_dmamark();
-        $this->_tplParams['marks'] = $srv_mk->getMarks();
+        //$srv_mk = new service_dmamark();
+        //$this->_tplParams['marks'] = $srv_mk->getMarks();
 
-        $this->_tplParams['mktypes'] = config::_get('mark_type');
+        //$this->_tplParams['mktypes'] = config::_get('mark_type');
+
+        //编辑
+        if ($dmid) {
+            $srv_dma = new service_dma($dmid);
+            $this->_tplParams['dma'] = $srv_dma->get();
+        }
         return $this->render('dma/form.tpl');
     }
 

@@ -76,8 +76,16 @@ $(document).ready(function(){
    }).mouseout(function(){
        $(this).removeClass("open");
    });
+   var _hmt = _hmt || [];
+   (function() {
+     var hm = document.createElement("script");
+     hm.src = "//hm.baidu.com/hm.js?7d15eaf79fdd9cd262296b56dc00a5ad";
+     var s = document.getElementsByTagName("script")[0];
+     s.parentNode.insertBefore(hm, s);
+   })();
 });
 </script>
-{%block body_js%}{%/block%}
+{%block body_js%}
+{%/block%}
 </body>
 </html>

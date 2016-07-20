@@ -31,7 +31,7 @@ class controller_jchd extends components_page_front {
                     $where[] = " (end_time = 0 or end_time > '{$time}') ";
                     break;
                 case 3: //已结束
-                    $where[] = " end_time < '{$time}' ";
+                    $where[] = " (end_time < '{$time}'  and end_time > 0)";
                     break;
                 default:
                     break;

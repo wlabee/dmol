@@ -68,7 +68,7 @@ class Tfile extends TBase {
      * @param int $maxSize 文件大小（默认500KB）
      * @return array('oldname'=>'上传时的文件名','url'=>'文件地址')
      */
-    public static function upload($files, $dir = null, $isImg = true, $maxSize = 500000) {
+    public static function upload($files, $dir = null, $isImg = true, $maxSize = 5000000) {
         if (!$files || !is_array($files)) {
             self::setError("未上传文件");
             return false;
