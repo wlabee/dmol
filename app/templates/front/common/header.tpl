@@ -1,4 +1,4 @@
-<div class="header">
+<!-- <div class="header">
     <div class="container">
         <div class="header-left">
             <a href="/"><img data-src="holder.js/120x50" src="" alt="" /></a>
@@ -15,11 +15,12 @@
         </div>
         <div class="clearfix"> </div>
     </div>
-</div>
+</div> -->
 <div class="banner">
     <div class="container">
         <div class="banner-navigation">
             <div class="banner-nav">
+                    <a href="/" class="banner-logo"><img data-src="holder.js/120x77" src="" alt="" /></a>
                     <ul class="flexy-menu orange">
                         <li class=" {%if $nav eq 'index' || $nav eq ''%}cap{%/if%}"><a href="/">首页</a></li>
                         <li class=" {%if $nav eq 'cyhl'%}cap{%/if%}"><a href="/cyhl">产业互联网+</a></li>

@@ -59,8 +59,11 @@
         </nav> -->
 
         <div class="clearfix"></div>
-        <div class="container main-content" id="content-wrapper">
+        <div class="main-content" id="content-wrapper">
             {%block name="content"%}{%/block%}
+        </div>
+        <div class="container main-content" id="content-wrapper">
+            {%block name="center-content"%}{%/block%}
         </div>
         <div class="clearfix"></div>
         {%include file="./common/footer.tpl"%}

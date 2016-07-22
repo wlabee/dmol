@@ -2,7 +2,7 @@
 {%block name="head_style"%}
     {%css path="front" file="jchd"%}
 {%/block%}
-{%block name="content"%}
+{%block name="center-content"%}
     <div class="row">
         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">

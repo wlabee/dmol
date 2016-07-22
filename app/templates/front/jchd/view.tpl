@@ -2,7 +2,7 @@
 {%block name="head_style"%}
     {%css path="front" file="jchd"%}
 {%/block%}
-{%block name="content"%}
+{%block name="center-content"%}
     <div class="jumbotron">
         <h1>{%$info.title%}</h1>
         <br>
