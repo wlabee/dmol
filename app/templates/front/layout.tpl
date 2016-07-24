@@ -79,6 +79,9 @@ $(document).ready(function(){
    }).mouseout(function(){
        $(this).removeClass("open");
    });
+   $(".banner-nav li.dropdown a.dropdown-toggle").click(function(){
+       window.location.href=$(this).attr('href');
+   });
    var _hmt = _hmt || [];
    (function() {
      var hm = document.createElement("script");

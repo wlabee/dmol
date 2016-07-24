@@ -2192,6 +2192,7 @@ input[type="submit"] {
   -moz-background-size: cover;
   -o-background-size: cover;
   -ms-background-size: cover;
+  border-bottom: 1px solid #eee;
 }
 .banner .banner-logo {
   float: left;
@@ -2200,6 +2201,10 @@ input[type="submit"] {
   height: 77px;
   text-align: center;
   vertical-align: middle;
+}
+.banner .banner-logo img {
+  width: 120px;
+  height: 77px;
 }
 .banner .banner-nav {
   text-align: center;
@@ -2232,7 +2237,7 @@ input[type="submit"] {
 .banner .banner-nav ul li a:hover {
   color: #fff;
 }
-.banner .banner-nav ul li.cap a {
+.banner .banner-nav ul li.cap a.dropdown-toggle {
   text-decoration: none;
   background-color: #FEC514;
   color: #fff;

@@ -30,14 +30,9 @@
                 </ul>
             </div>
             <div class="col-md-3 footer-grid">
-                <h3>rem aperiam, eaque</h3>
-                <ul>
-                    <li><a href="#">voluptas sit aspernatur</a></li>
-                    <li><a href="#">voluptatem sequi nesciunt</a></li>
-                    <li><a href="#">exercitationem ullam</a></li>
-                    <li><a href="#">vel illum qui dolorem</a></li>
-                    <li><a href="#">nostrum exercitationem</a></li>
-                </ul>
+                <h3>微信公众号</h3>
+                <br>
+                <img src="/assets/images/qrcode.jpg" alt="" style="width:150px" />
             </div>
             <div class="clearfix"> </div>
         </div>

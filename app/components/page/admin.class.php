@@ -26,6 +26,7 @@ class components_page_admin extends components_page {
         $sub = new admin_module_submenu('其他', 'fa-paper-plane', '#');
         $sub->add(new admin_module_link('意向需求', 'fa-plus', '/intention'));
         $sub->add(new admin_module_link('活动管理', 'fa-plus', '/activity'));
+        $sub->add(new admin_module_link('文章管理', 'fa-plus', '/article'));
         $menu->add($sub);
 
         return $menu->getHtml();
