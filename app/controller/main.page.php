@@ -8,6 +8,17 @@ class controller_main extends components_page_front {
 
     function pageIndex($inPath)
     {
+        pf($_SERVER);
+        $a = "a//////b//////x////c";
+        $b = explode('/', $a);
+        // $b = array_map(function($item){if($item){return $item;}}, $b);
+        $b = array_filter($b,function($item){return $item !== '';});
+        $b = array_values($b);
+        list($x,$y,$z) = $b;
+        echo $x .'.....'.$y.'.....'.$z;
+        pf($b);
+
+
         return $this->render('index/index.tpl');
     	if ($this->_request['post'] == 1) {
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {

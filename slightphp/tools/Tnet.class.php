@@ -3,16 +3,12 @@
 class Tnet {
 
     public static function throw404() {
-        if (preg_match('/^jxs\./', $_SERVER['HTTP_HOST'])) {
-            zbj_lib_BaseUtils::run404();
-        } else {
-            $SGui = new SGui();
-            header('HTTP/1.1 404 Not Found');
-            header('Status: 404 Not Found');
-            $tpl = ROOT_DIR . '/app/templates/store/404.tpl';
-            echo $SGui->render($tpl, null, '%');
-            exit;
-        }
+        $SGui = new SGui();
+        header('HTTP/1.1 404 Not Found');
+        header('Status: 404 Not Found');
+        $tpl = ROOT_DIR . '/app/templates/store/404.tpl';
+        echo $SGui->render($tpl, null, '%');
+        exit;
     }
 
     /**

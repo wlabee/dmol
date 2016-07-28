@@ -26,15 +26,14 @@ class components_page_admin extends components_page {
         $sub = new admin_module_submenu('其他', 'fa-paper-plane', '#');
         $sub->add(new admin_module_link('意向需求', 'fa-plus', '/intention'));
         $sub->add(new admin_module_link('活动管理', 'fa-plus', '/activity'));
+        $sub->add(new admin_module_link('文章管理', 'fa-plus', '/article'));
         $menu->add($sub);
 
         return $menu->getHtml();
     }
 
     public function render($tpl, $dir = 'admin') {
-        $config['compile_dir'] = $dir;
-        $config['template_dir'] = $dir;
-        return parent::render($tpl, $config);
+        return parent::render($tpl, $dir);
     }
 
     function showMessage($code = 1, $msg = '正在跳转中', $backurl = '', $second = 0) {

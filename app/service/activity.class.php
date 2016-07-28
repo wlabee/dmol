@@ -221,4 +221,34 @@ class service_activity extends components_service
         $succ = $m_act->updateMultiple($data, 'act_id');
         return true;
     }
+
+    //推荐活动
+    public function getPushAct($limit = 5)
+    {
+        $limit = (int)$limit > 0 ? (int)$limit : 5;
+        $where = array(
+            'status' => 1,
+            'is_push' => 1,
+        );
+        $this->model->setPage(1);
+        $this->model->setLimit($limit);
+        $this->model->setCount(true);
+
+        return $this->model->select($where, '*', '', 'sort asc, act_id desc')->items;
+    }
+
+    //热门活动
+    public function getHotAct($limit = 5)
+    {
+        $limit = (int)$limit > 0 ? (int)$limit : 5;
+        $where = array(
+            'status' => 1,
+            'is_hot' => 1,
+        );
+        $this->model->setPage(1);
+        $this->model->setLimit($limit);
+        $this->model->setCount(true);
+
+        return $this->model->select($where, '*', '', 'sort asc, act_id desc')->items;
+    }
 }

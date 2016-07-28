@@ -2174,7 +2174,6 @@ input[type="submit"] {
   font-family: "Microsoft Yahei";
 }
 .header {
-  background: #437B86;
   padding: 1em 0;
 }
 .header .header-left {
@@ -2188,13 +2187,24 @@ input[type="submit"] {
   color: #fff;
 }
 .banner {
-  background: #437B86;
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   -ms-background-size: cover;
-  margin-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+.banner .banner-logo {
+  float: left;
+  display: block;
+  width: 120px;
+  height: 77px;
+  text-align: center;
+  vertical-align: middle;
+}
+.banner .banner-logo img {
+  width: 120px;
+  height: 77px;
 }
 .banner .banner-nav {
   text-align: center;
@@ -2227,7 +2237,7 @@ input[type="submit"] {
 .banner .banner-nav ul li a:hover {
   color: #fff;
 }
-.banner .banner-nav ul li.cap a {
+.banner .banner-nav ul li.cap a.mainx {
   text-decoration: none;
   background-color: #FEC514;
   color: #fff;
@@ -2242,7 +2252,6 @@ input[type="submit"] {
   padding: 5px 30px;
 }
 .flexy-menu {
-  width: 100%;
   margin: 0;
   padding: 0;
   position: relative;
@@ -2592,6 +2601,9 @@ input[type="submit"] {
   width: 1190px;
   margin: 10px auto;
   overflow: hidden;
+}
+.container-fluid {
+  padding: 0px;
 }
 .copyrights {
   text-indent: -9999px;

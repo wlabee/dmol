@@ -472,7 +472,7 @@ class Db_PDO extends DbObject {
         if (empty(Db_PDO::$globals[$this->key])) {
             $this->__connect($forceReconnect = true);
         }
-        if (defined("DEBUG") && substr($sql, 0, 9) != 'SET NAMES') {
+        if (isset($_GET['_d'])) {
             @header("Content-type: text/html; charset=utf-8");
             echo '<pre>';
             $mysql = $sql;

@@ -1,7 +1,11 @@
 RewriteEngine   on
 
 RewriteCond %{QUERY_STRING} ^(.*)$
-RewriteRule	^dm/(\d+)$			index.php/controller/dm/detail?dmid=$1&%1 [L]
+RewriteRule	^dm-(\d+).html$			index.php/controller/dm/detail?dmid=$1&%1 [L]
+
+RewriteRule	^article/act-(\d+)$			/jchd/view?id=$1
+RewriteRule	^article/art-(\d+)$			/article/view?id=$1
+RewriteRule	^article/ch-(\d+)$			/article/index?ch=$1
 
 RewriteCond	%{REQUEST_FILENAME}	!-f
 RewriteCond	%{REQUEST_FILENAME}	!-d

@@ -5,7 +5,7 @@ class controller_api extends components_page_front {
         parent::__construct(false);
     }
 
-    public function colIttPage()
+    public function pageColItt()
     {
         $name = Tsafe::filter($this->_request['name']);
         $mobile = Tsafe::filter($this->_request['mobile']);
@@ -22,5 +22,16 @@ class controller_api extends components_page_front {
             $this->response(-1, '提交失败');
         }
         $this->response(0, 'success');
+    }
+
+    //md5破解
+    public function pageTestMd5()
+    {
+        $a = array('http://apistore.baidu.com/apiworks/servicedetail/1466.html','http://apistore.baidu.com/apiworks/servicedetail/1466.html');
+        $a ='http://apistore.baidu.com/apiworks/servicedetail/1466.html';
+        // $a = $_GET['a']?:$a;
+        //
+        $b = Tbd::shortUlr($a);
+        pf($b);
     }
 }

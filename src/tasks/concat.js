@@ -140,8 +140,8 @@ module.exports = function (front_paths, admin_paths) {
                         // admin_paths.js_src + 'common/libs/bootstrap-markdown-2.2.1/bootstrap-markdown.js',
                         // }
                         // {
-                        // admin_paths.js_src + 'common/libs/raphael-2.1.2.min.js',
-                        // admin_paths.js_src + 'common/libs/morris-0.5.0.js',
+                        admin_paths.js_src + 'common/libs/raphael-2.1.2.min.js',
+                        admin_paths.js_src + 'common/libs/morris-0.5.0.js',
                         // }
                         // {
                         // admin_paths.js_src + 'common/libs/jquery.flot-0.8.2/jquery.flot.js',

@@ -18,7 +18,7 @@ class service_dma extends components_service
 
     public function _add($data)
     {
-        $in_data = Tarray::getSub($data, array('dm_title', 'dm_content'));
+        $in_data = Tarray::getSub($data, array('dm_title', 'dm_content', 'hashead'));
         if (!$in_data['dm_title']) {
             throw new Exception('无效页面标题');
         }
@@ -32,9 +32,35 @@ class service_dma extends components_service
             'create_time' => $this->_time,
             'create_date' => $this->_ymd,
         ));
-        $in_data['dm_content'] = $this->formatDmCnt($in_data['dm_content']);
+        $in_data['hashead'] = $in_data['hashead'] ? 1 : 0;
 
         $dm_id = $this->model->insert($in_data);
+        if ($dm_id === false) {
+            throw new Exception('数据操作错误');
+            // throw new Exception($this->model->getDbError());
+        }
+        return $dm_id;
+    }
+
+    //添加页面
+    public function edit($data)
+    {
+        return $this->invokeTransaction();
+    }
+
+    public function _edit($data)
+    {
+        if (! $this->id) {
+            throw new Exception("无效对象");
+        }
+        $in_data = Tarray::getSub($data, array('dm_title', 'dm_content', 'hashead'));
+        if (!$in_data['dm_title']) {
+            throw new Exception('无效页面标题');
+        }
+
+        $in_data['hashead'] = $in_data['hashead'] ? 1 : 0;
+
+        $dm_id = $this->model->update(array('dm_id' => $this->id), $in_data);
         if ($dm_id === false) {
             throw new Exception('数据操作错误');
             // throw new Exception($this->model->getDbError());

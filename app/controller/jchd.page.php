@@ -31,7 +31,7 @@ class controller_jchd extends components_page_front {
                     $where[] = " (end_time = 0 or end_time > '{$time}') ";
                     break;
                 case 3: //已结束
-                    $where[] = " end_time < '{$time}' ";
+                    $where[] = " (end_time < '{$time}'  and end_time > 0)";
                     break;
                 default:
                     break;
@@ -47,10 +47,34 @@ class controller_jchd extends components_page_front {
         $this->_tplParams['pages'] = $this->getPageBarByDb($result);
         $this->_tplParams['list'] = $result->items;
 
+        $srv_act = new service_activity();
         //推荐活动
+        $this->_tplParams['pushs'] = $srv_act->getPushAct();
         //热门活动
+        $this->_tplParams['hots'] = $srv_act->getHotAct();
 
         return $this->render('jchd/index.tpl');
+    }
+
+    public function pageView()
+    {
+        $id = Tsafe::filter($this->_request['id'], 'int');
+        if (! $id) {
+            $this->response('无效参数');
+        }
+
+        $srv_act = new service_activity($id);
+        $data = $srv_act->get();
+
+        //有链接直接跳转到链接
+        if ($data['url'] && Tverify::isUrl($data['url'])) {
+            header("location:".$data['url']);
+            exit;
+        }
+
+        $this->_tplParams['info'] = $data;
+
+        return $this->render('jchd/view.tpl');
     }
 
 }

@@ -10,7 +10,7 @@
         <meta name="keywords" content="{%$keywords%}"/>
         {%block name="meta"%}{%/block%}
         {%css path="front" file="bootstrap,layout"%}
-        {%js type="plugin" file="jquery.min.js"%}
+        {%js type="plugin" file="jquery.min.js,holder.min.js"%}
         {%js path="front" file="global"%}
         {%block head_style%}{%/block%}
     {%/block%}
@@ -59,8 +59,11 @@
         </nav> -->
 
         <div class="clearfix"></div>
-        <div class="container main-content" id="content-wrapper">
+        <div class="main-content" id="content-wrapper">
             {%block name="content"%}{%/block%}
+        </div>
+        <div class="container main-content" id="content-wrapper">
+            {%block name="center-content"%}{%/block%}
         </div>
         <div class="clearfix"></div>
         {%include file="./common/footer.tpl"%}
@@ -76,8 +79,19 @@ $(document).ready(function(){
    }).mouseout(function(){
        $(this).removeClass("open");
    });
+   $(".banner-nav li.dropdown a.dropdown-toggle").click(function(){
+       window.location.href=$(this).attr('href');
+   });
+   var _hmt = _hmt || [];
+   (function() {
+     var hm = document.createElement("script");
+     hm.src = "//hm.baidu.com/hm.js?7d15eaf79fdd9cd262296b56dc00a5ad";
+     var s = document.getElementsByTagName("script")[0];
+     s.parentNode.insertBefore(hm, s);
+   })();
 });
 </script>
-{%block body_js%}{%/block%}
+{%block body_js%}
+{%/block%}
 </body>
 </html>
