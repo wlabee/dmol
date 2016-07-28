@@ -17,6 +17,7 @@
                 <div class="form-group">
                     <label class="sr-only" for="scname">类型</label>
                     <select class="form-control" name="chid">
+                        <option value="0">全部</option>
                         {%foreach from=$channel key=key item=item%}
                         <option value="{%$key%}" {%if $smarty.get.chid eq $key%}selected="selected"{%/if%}>{%$item%}</option>
                         {%/foreach%}

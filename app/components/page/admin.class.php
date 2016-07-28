@@ -33,9 +33,7 @@ class components_page_admin extends components_page {
     }
 
     public function render($tpl, $dir = 'admin') {
-        $config['compile_dir'] = $dir;
-        $config['template_dir'] = $dir;
-        return parent::render($tpl, $config);
+        return parent::render($tpl, $dir);
     }
 
     function showMessage($code = 1, $msg = '正在跳转中', $backurl = '', $second = 0) {
