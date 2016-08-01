@@ -3,9 +3,6 @@
 class controller_article extends components_page_front {
     function __construct() {
         parent::__construct(false);
-        $ch = Tsafe::filter($this->_request['ch'], 'int');
-        $this->_tplParams['nav'] = 'ch-'.$ch;
-        $this->_tplParams['ch'] = $ch;
         $this->_tplParams['channel'] = config::getArticleCh();
     }
 
@@ -35,6 +32,13 @@ class controller_article extends components_page_front {
         $this->_tplParams['pages'] = $this->getPageBarByDb($result);
         $this->_tplParams['list'] = $result->items;
 
+        $this->_tplParams['nav'] = 'ch-'.$ch;
+        $this->_tplParams['ch'] = $ch;
+        $this->addBread(array(
+            'name' => $this->_tplParams['channel'][$ch],
+            'url' => '/article/ch-'.$ch.'.html',
+        ));
+
         return $this->render('article/index.tpl');
     }
 
@@ -49,6 +53,17 @@ class controller_article extends components_page_front {
         $data = $srv_act->get();
 
         $this->_tplParams['info'] = $data;
+
+        $this->_tplParams['nav'] = 'ch-'.$data['ch_id'];
+        $this->_tplParams['ch'] = $data['ch_id'];
+        $this->addBread(array(
+            'name' => $this->_tplParams['channel'][$data['ch_id']],
+            'url' => '/article/ch-'.$data['ch_id'].'.html',
+        ));
+        $this->addBread(array(
+            'name' => $data['title'],
+            'url' => '/article/art-'.$data['id'].'.html'
+        ));
 
         return $this->render('article/view.tpl');
     }

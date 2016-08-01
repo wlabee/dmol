@@ -2,6 +2,8 @@
 
 class components_page_front extends components_page {
 
+    protected $bread = array();//面包屑导航
+
     public function __construct($isNeedLogin = true)
     {
         parent::__construct($isNeedLogin);
@@ -10,6 +12,7 @@ class components_page_front extends components_page {
     }
 
     public function render($tpl, $dir = 'front') {
+        $this->_tplParams['bread_html'] = $this->getBread();
         return parent::render($tpl, $dir);
     }
 
@@ -29,6 +32,22 @@ class components_page_front extends components_page {
         $this->_tplParams['code'] = $code;
         echo $this->render('prompt.tpl', 'common');
         exit;
+    }
+
+    public function addBread($item)
+    {
+        if (! is_array($item)) {
+            return false;
+        }
+        $this->bread[] = $item;
+    }
+
+    public function getBread()
+    {
+        // array_unshift($this->bread, array('name' => '首页', 'url' => '/'));
+        $this->_tplParams['bread'] = $this->bread;
+
+        return parent::render('common/bread.tpl', 'front');
     }
 }
 

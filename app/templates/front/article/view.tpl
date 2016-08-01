@@ -3,6 +3,7 @@
     {%css path="front" file="jchd"%}
 {%/block%}
 {%block name="center-content"%}
+    {%$bread_html%}
     <div class="jumbotron">
         <h1>{%$info.title%}</h1>
         <br>

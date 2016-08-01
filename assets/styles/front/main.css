@@ -2173,6 +2173,9 @@ input[type="submit"] {
   line-height: 28px;
   font-family: "Microsoft Yahei";
 }
+body {
+  background-color: #eaeff2;
+}
 .header {
   padding: 1em 0;
 }
@@ -2193,6 +2196,7 @@ input[type="submit"] {
   -o-background-size: cover;
   -ms-background-size: cover;
   border-bottom: 1px solid #eee;
+  background-color: #fff;
 }
 .banner .banner-logo {
   float: left;
@@ -2604,6 +2608,10 @@ input[type="submit"] {
 }
 .container-fluid {
   padding: 0px;
+}
+.breadcrumb {
+  padding: 15px 0;
+  background-color: transparent;
 }
 .copyrights {
   text-indent: -9999px;

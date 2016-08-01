@@ -2,27 +2,28 @@
 {%block name="head_style"%}
     {%css path="front" file="jchd"%}
     <style type="text/css">
-        .tt-list {
-            padding-left: 20px;
-        }
-        .tt-list li {
-            line-height: 30px;
-            list-style-type:disc;
+        .art-list li {
+            padding: 20px 15px;
+            border-bottom: 1px solid #e4e4e4;
+            font-size: 16px;
         }
     </style>
 {%/block%}
 {%block name="center-content"%}
     <div class="row">
-        <h1 style="font-size:27px;padding:10px 0;">{%$channel.$ch%}</h1>
-        <div class="col-md-12">
-            <ul class="tt-list">
-                {%foreach from=$list item=item%}
+        {%$bread_html%}
+        <!-- <h1 style="font-size:27px;padding:10px 0;">{%$channel.$ch%}</h1> -->
+        <ul class="art-list">
+            {%foreach from=$list item=item%}
                 <li>
-                <a href="/article/art-{%$item.id%}" target="_blank">{%$item.title%}</a></li>
-                {%foreachelse%}
+                    <i class="fa fa-tag"></i>&nbsp;&nbsp;
+                    <a href="/article/art-{%$item.id%}.html" class="thread-title">{%$item.title%}</a>
+                </li>
+            {%foreachelse%}
+                <li>
                     暂无数据...
-                {%/foreach%}
-            </ul>
+                </li>
+            {%/foreach%}
         </div>
     </div>
 {%/block%}

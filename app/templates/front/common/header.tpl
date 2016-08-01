@@ -24,24 +24,24 @@
                     <ul class="flexy-menu orange">
                         <li class="{%if $nav eq 'index' or $nav eq ''%}cap{%/if%}"><a class="mainx" href="/">首页</a></li>
                         <li class="dropdown {%if $nav eq 'ch-1' or $nav eq 'ch-2'%}cap{%/if%}">
-                            <a href="/article/ch-1" class="mainx dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">牛刀服务</a>
+                            <a href="/article/ch-1.html" class="mainx dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">牛刀服务</a>
                             <ul id="menu2" class="dropdown-menu" aria-labelledby="drop1">
-                                <li><a href="/article/ch-1">新品牌策划</a></li>
-                                <li><a href="/article/ch-2">新商模策划</a></li>
+                                <li><a href="/article/ch-1.html">新品牌策划</a></li>
+                                <li><a href="/article/ch-2.html">新商模策划</a></li>
                             </ul>
                         </li>
                         <li class="dropdown {%if $nav eq 'ch-3' or $nav eq 'ch-4'%}cap{%/if%}">
-                            <a href="/article/ch-3" class="mainx dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">精彩活动</a>
+                            <a href="/article/ch-3.html" class="mainx dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">精彩活动</a>
                             <ul id="menu3" class="dropdown-menu" aria-labelledby="drop1">
-                                <li><a href="/article/ch-3">线上访谈</a></li>
-                                <li><a href="/article/ch-4">圆桌解析会</a></li>
+                                <li><a href="/article/ch-3.html">线上访谈</a></li>
+                                <li><a href="/article/ch-4.html">圆桌解析会</a></li>
                             </ul>
                         </li>
                         <li class="dropdown {%if $nav eq 'ch-5'  or $nav eq 'ch-6'%}cap{%/if%}">
-                            <a href="/article/ch-5" class="mainx dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">成长社区</a>
+                            <a href="/article/ch-5.html" class="mainx dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">成长社区</a>
                             <ul id="menu3" class="dropdown-menu" aria-labelledby="drop1">
-                                <li><a href="/article/ch-5">牛刀干货</a></li>
-                                <li><a href="/article/ch-6">案例解析</a></li>
+                                <li><a href="/article/ch-5.html">牛刀干货</a></li>
+                                <li><a href="/article/ch-6.html">案例解析</a></li>
                             </ul>
                         </li>
                         <li class="dropdown {%if $nav eq 'about'%}cap{%/if%}">

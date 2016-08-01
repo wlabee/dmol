@@ -46,12 +46,12 @@
             {%foreach from=$list item=item%}
             <div class="item-info">
                 <div class="item-logo">
-                    <a href="{%if $item.url%}{%$item.url%}{%else%}article/act-{%$item.act_id%}{%/if%}" target="_blank">
+                    <a href="{%if $item.url%}{%$item.url%}{%else%}article/act-{%$item.act_id%}.html{%/if%}" target="_blank">
                     <img data-src="holder.js/100x100" src="{%$item.logo|file:'default'%}" alt="{%$item.title%}" />
                     </a>
                 </div>
                 <div class="item-title">
-                    <a href="{%if $item.url%}{%$item.url%}{%else%}article/act-{%$item.act_id%}{%/if%}" target="_blank">{%$item.title%}</a>
+                    <a href="{%if $item.url%}{%$item.url%}{%else%}article/act-{%$item.act_id%}.html{%/if%}" target="_blank">{%$item.title%}</a>
                 </div>
                 <div class="item-sinfo">
                     <p>
@@ -74,7 +74,7 @@
             <div class="list-group">
                 <a class="list-group-item active">热门活动</a>
                 {%foreach from=$hots item=item key=key%}
-                    <a class="list-group-item" href="{%if $item.url%}{%$item.url%}{%else%}article/act-{%$item.act_id%}{%/if%}">{%$item.title%}</a>
+                    <a class="list-group-item" href="{%if $item.url%}{%$item.url%}{%else%}article/act-{%$item.act_id%}.html{%/if%}">{%$item.title%}</a>
                 {%/foreach%}
             </div>
         </div>
